@@ -7,4 +7,20 @@ router.get('/', function(req, res, next) {
   res.render('Webpages/menu', { title: 'Express' });
 });
 
+
+
+
+//  AJAX ekhane ashbe!
+router.post('/', function (req, res, next){
+
+
+  console.log(req.body);
+  let data = req.body.data;
+  console.log("ashchhe: " + data);
+
+  res.render('Webpages/menu', { title: 'Express' });
+});
+
+
+
 module.exports = router;

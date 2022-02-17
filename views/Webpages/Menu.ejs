@@ -3,9 +3,32 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <!--
+      JQUERY, AJAX here
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <ul id="unordered_list">
+
+    </ul>
+
+    <form action="/menu" method="post">
+      <input type="text" value="" id="input_data" name="input_name">
+      <input type="submit" value="click me!" id="input_button">
+    </form>
+
+
+    <!--
+      JQUERY, AJAX here
+    -->
+    <script src="/javascripts/webpageJavascripts/Menu.js"></script>
+
   </body>
 </html>
