@@ -4,6 +4,7 @@
 1. install postgre
 2. create database with name "HungerExpress"
 3. edit "db_config.js" as required
+4. execute bin/www.js 
 
 # Endpoints
 1. localhost:3000/
