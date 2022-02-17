@@ -1,48 +1,50 @@
 
-function addon(id, name, price, count){
+function customer_image(id, customer_id, link, time){
     let _id = id;
-    let _name = name;
-    let _price = price;
-    let _count = count;
+    let _customer_id = customer_id;
+    let _link = link;
+    let _time = time;
 
     let getId = function () { return _id; }
-    let getName = function() { return _name; }
-    let getPrice = function() { return _price; }
-    let getCount = function() { return _count; }
+    let getCustomerId = function() { return _customer_id; }
+    let getLink = function() { return _link; }
+    let getTime = function() { return _time; }
 
     let setId = function(id) { _id = id; }
-    let setName = function(name) { _name = name; }
-    let setPrice = function(price) { _price = price; }
-    let setCount = function(count) { _count = count; }
+    let setCustomerId = function(customer_id) { _customer_id = customer_id; }
+    let setLink = function(link) { _link = link; }
+    let setTime = function(time) { _time = time; }
 
     let toString = function() {
-        return "id: " + _id + " name: " + _name + " price: " + _price + " count: " + _count;
+        return "id: " + _id + " customer_id: " + _customer_id + " link: " + _link +
+            + " time" + _time;
     }
 
     let getJson = function() {
-        return { id: _id, name: _name, price: _price, count: _count }
+        return { id: _id, customer_id: _customer_id, link: _link,
+             time: _time };
     }
 
     return {
         getId,
-        getName,
-        getPrice,
-        getCount,
+        getCustomerId,
+        getLink,
+        getTime,
         setId,
-        setName,
-        setPrice,
-        setCount,
+        setCustomerId,
+        setLink,
+        setTime,
         toString,
         getJson
     };
 }
 
 let create = function (){
-    return new addon(-1, "", 0, -1);
+    return new customer_image(-1, -1, "", -1);
 }
 
 let createFromJson = function (json){
-    return new addon(json.id, json.name, json.price, json.count);
+    return new customer_image(json.id, json.customer_id, json.link, json.time);
 }
 
 let createArrayFromJson = function (jsonArray){

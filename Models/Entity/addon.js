@@ -20,7 +20,7 @@ function addon(id, name, price, count){
     }
 
     let getJson = function() {
-        return { id: _id, name: _name, price: _price, count: _count }
+        return { id: _id, name: _name, price: _price, count: _count };
     }
 
     return {

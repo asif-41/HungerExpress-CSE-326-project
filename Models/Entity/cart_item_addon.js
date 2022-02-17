@@ -1,36 +1,43 @@
 
-function addon(id, name, price, count){
+function cart_item_addon(id, cart_item_id, addon_id, total_price, count){
     let _id = id;
-    let _name = name;
-    let _price = price;
+    let _cart_item_id = cart_item_id;
+    let _addon_id = addon_id;
+    let _total_price = total_price;
     let _count = count;
 
     let getId = function () { return _id; }
-    let getName = function() { return _name; }
-    let getPrice = function() { return _price; }
+    let getCartItemId = function() { return _cart_item_id; }
+    let getAddonId = function() { return _addon_id; }
+    let getTotalPrice = function() { return _total_price; }
     let getCount = function() { return _count; }
 
     let setId = function(id) { _id = id; }
-    let setName = function(name) { _name = name; }
-    let setPrice = function(price) { _price = price; }
+    let setCartItemId = function(cart_item_id) { _cart_item_id = cart_item_id; }
+    let setAddonId = function(addon_id) { _addon_id = addon_id; }
+    let setTotalPrice = function(total_price) { _total_price = total_price; }
     let setCount = function(count) { _count = count; }
 
     let toString = function() {
-        return "id: " + _id + " name: " + _name + " price: " + _price + " count: " + _count;
+        return "id: " + _id + " cart_item_id: " + _cart_item_id + " addon_id: " + _addon_id +
+            " total_price: " + _total_price + " count" + _count;
     }
 
     let getJson = function() {
-        return { id: _id, name: _name, price: _price, count: _count }
+        return { id: _id, cart_item_id: _cart_item_id, addon_id: _addon_id,
+            total_price: _total_price, count: _count };
     }
 
     return {
         getId,
-        getName,
-        getPrice,
+        getCartItemId,
+        getAddonId,
+        getTotalPrice,
         getCount,
         setId,
-        setName,
-        setPrice,
+        setCartItemId,
+        setAddonId,
+        setTotalPrice,
         setCount,
         toString,
         getJson
@@ -38,11 +45,11 @@ function addon(id, name, price, count){
 }
 
 let create = function (){
-    return new addon(-1, "", 0, -1);
+    return new cart_item_addon(-1, -1, -1, 0,0);
 }
 
 let createFromJson = function (json){
-    return new addon(json.id, json.name, json.price, json.count);
+    return new cart_item_addon(json.id, json.cart_item_id, json.addon_id, json.total_price, json.count);
 }
 
 let createArrayFromJson = function (jsonArray){

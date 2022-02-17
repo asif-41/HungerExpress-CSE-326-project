@@ -4,24 +4,35 @@ var pool = require('./../../db_config');
 
 // var AddOn = require('./../../Models/Entity/addon');
 // var Address = require('./../../Models/Entity/address');
+// var Admin = require('./../../Models/Entity/admin');
+//  var Cart = require('./../../Models/Entity/cart');
+//  var CartItem = require('./../../Models/Entity/cart_item');
+//  var CartItemAddon = require('./../../Models/Entity/cart_item_addon');
+//  var Category = require('./../../Models/Entity/category');
+//  var CoinHistory = require('./../../Models/Entity/coin_history');
+//  var CoinUseType = require('./../../Models/Entity/coin_use_type');
+//  var Customer = require('./../../Models/Entity/customer');
+//  var CustomerAddress = require('./../../Models/Entity/customer_address');
+//  var CustomerImage = require('./../../Models/Entity/customer_image');
+ var DeliveryAddress = require('./../../Models/Entity/delivery_address');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
 
-  //var data = await pool.query('SELECT * FROM address');
+  var data = await pool.query('SELECT * FROM delivery_address');
 
 
-  // var array = Address.createArrayFromJson(data.rows);
-  // for(let i=0; i<array.length; i++){
-  //   console.log(array[i].getJson());
-  // }
-  //
-  // array[0].setId("haha");
-  //
-  //
-  // for(let i=0; i<array.length; i++){
-  //   console.log(array[i].getJson());
-  // }
+  var array = DeliveryAddress.createArrayFromJson(data.rows);
+  for(let i=0; i<array.length; i++){
+    console.log(array[i].getJson());
+  }
+
+  array[0].setId("haha");
+
+
+  for(let i=0; i<array.length; i++){
+    console.log(array[i].getJson());
+  }
 
 
 

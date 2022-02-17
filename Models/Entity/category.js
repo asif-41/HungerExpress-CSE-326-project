@@ -1,48 +1,43 @@
 
-function addon(id, name, price, count){
+function category(id, restaurant_id, name){
     let _id = id;
+    let _restaurant_id = restaurant_id;
     let _name = name;
-    let _price = price;
-    let _count = count;
 
     let getId = function () { return _id; }
+    let getRestaurantId = function() { return _restaurant_id; }
     let getName = function() { return _name; }
-    let getPrice = function() { return _price; }
-    let getCount = function() { return _count; }
 
     let setId = function(id) { _id = id; }
+    let setRestaurantId = function(restaurant_id) { _restaurant_id = restaurant_id; }
     let setName = function(name) { _name = name; }
-    let setPrice = function(price) { _price = price; }
-    let setCount = function(count) { _count = count; }
 
     let toString = function() {
-        return "id: " + _id + " name: " + _name + " price: " + _price + " count: " + _count;
+        return "id: " + _id + " restaurant_id: " + _restaurant_id + " name: " + _name;
     }
 
     let getJson = function() {
-        return { id: _id, name: _name, price: _price, count: _count }
+        return { id: _id, restaurant_id: _restaurant_id, name: _name };
     }
 
     return {
         getId,
+        getRestaurantId,
         getName,
-        getPrice,
-        getCount,
         setId,
+        setRestaurantId,
         setName,
-        setPrice,
-        setCount,
         toString,
         getJson
     };
 }
 
 let create = function (){
-    return new addon(-1, "", 0, -1);
+    return new category(-1, -1, "");
 }
 
 let createFromJson = function (json){
-    return new addon(json.id, json.name, json.price, json.count);
+    return new category(json.id, json.restaurant_id, json.name);
 }
 
 let createArrayFromJson = function (jsonArray){
