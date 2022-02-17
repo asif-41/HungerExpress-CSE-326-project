@@ -14,27 +14,28 @@ var pool = require('./../../db_config');
 //  var Customer = require('./../../Models/Entity/customer');
 //  var CustomerAddress = require('./../../Models/Entity/customer_address');
 //  var CustomerImage = require('./../../Models/Entity/customer_image');
- var DeliveryAddress = require('./../../Models/Entity/delivery_address');
+//  var DeliveryAddress = require('./../../Models/Entity/delivery_address');
+//  var Order = require('./../../Models/Entity/order');
+// var NormalOrder = require('./../../Models/Entity/normal_order');
+// var PreOrder = require('./../../Models/Entity/pre_order');
+// var RushOrder = require('./../../Models/Entity/rush_order');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
 
-  var data = await pool.query('SELECT * FROM delivery_address');
-
-
-  var array = DeliveryAddress.createArrayFromJson(data.rows);
-  for(let i=0; i<array.length; i++){
-    console.log(array[i].getJson());
-  }
-
-  array[0].setId("haha");
-
-
-  for(let i=0; i<array.length; i++){
-    console.log(array[i].getJson());
-  }
-
-
+  // var data = await pool.query('SELECT * FROM rush_order');
+  //
+  // var array = RushOrder.createArrayFromJson(data.rows);
+  // for(let i=0; i<array.length; i++){
+  //   console.log(array[i].getJson());
+  // }
+  //
+  // array[0].getOrder().setName("haha");
+  //
+  //
+  // for(let i=0; i<array.length; i++){
+  //   console.log(array[i].getJson());
+  // }
 
   // var addon1 = AddOn.create();
   //

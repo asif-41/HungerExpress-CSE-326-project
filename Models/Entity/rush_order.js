@@ -1,48 +1,53 @@
 
-function addon(id, name, price, count){
-    let _id = id;
-    let _name = name;
-    let _price = price;
-    let _count = count;
+const Order = require('./order')
 
-    let getId = function () { return _id; }
-    let getName = function() { return _name; }
-    let getPrice = function() { return _price; }
-    let getCount = function() { return _count; }
+function rush_order(id, cart_id, delivery_address_id, restaurant_manager_id, phone, name, maximum_time, estimated_time){
 
-    let setId = function(id) { _id = id; }
-    let setName = function(name) { _name = name; }
-    let setPrice = function(price) { _price = price; }
-    let setCount = function(count) { _count = count; }
+    let _order = Order.createFromJson({
+        id: id, cart_id: cart_id, delivery_address_id: delivery_address_id,
+        restaurant_manager_id: restaurant_manager_id, phone: phone, name: name
+    });
+    let _maximum_time = maximum_time;
+    let _estimated_time = estimated_time;
+
+    let getOrder = function () { return _order; }
+    let getMaximumTime = function () { return _maximum_time; }
+    let getEstimatedTime = function () { return _estimated_time; }
+
+    let setOrder = function (order) { _order = order; }
+    let setMaximumTime = function (pin) { _maximum_time = maximum_time; }
+    let setEstimatedTime = function (estimated_time) { _estimated_time = estimated_time; }
 
     let toString = function() {
-        return "id: " + _id + " name: " + _name + " price: " + _price + " count: " + _count;
+        return _order.toString() + " maximum_time: " + _maximum_time + " estimated_time: " + _estimated_time;
     }
 
     let getJson = function() {
-        return { id: _id, name: _name, price: _price, count: _count }
+        let ret = _order.getJson();
+        ret["maximum_time"] = _maximum_time;
+        ret["estimated_time"] = _estimated_time;
+        return ret;
     }
 
     return {
-        getId,
-        getName,
-        getPrice,
-        getCount,
-        setId,
-        setName,
-        setPrice,
-        setCount,
+        getOrder,
+        getMaximumTime,
+        getEstimatedTime,
+        setOrder,
+        setMaximumTime,
+        setEstimatedTime,
         toString,
         getJson
     };
 }
 
 let create = function (){
-    return new addon(-1, "", 0, -1);
+    return new rush_order(-1, -1, -1, -1, "", "", "", "");
 }
 
 let createFromJson = function (json){
-    return new addon(json.id, json.name, json.price, json.count);
+    return new rush_order(json.id, json.cart_id, json.delivery_address_id,
+        json.restaurant_manager_id, json.phone, json.name, json.maximum_time, json.estimated_time);
 }
 
 let createArrayFromJson = function (jsonArray){
