@@ -1,48 +1,48 @@
 
-function addon(id, name, price, count){
+function gift_info(id, order_id, name, phone){
     let _id = id;
+    let _order_id = order_id;
     let _name = name;
-    let _price = price;
-    let _count = count;
+    let _phone = phone;
 
     let getId = function () { return _id; }
+    let getOrderId = function() { return _order_id; }
     let getName = function() { return _name; }
-    let getPrice = function() { return _price; }
-    let getCount = function() { return _count; }
+    let getPhone = function() { return _phone; }
 
     let setId = function(id) { _id = id; }
+    let setOrderId = function(order_id) { _order_id = order_id; }
     let setName = function(name) { _name = name; }
-    let setPrice = function(price) { _price = price; }
-    let setCount = function(count) { _count = count; }
+    let setPhone = function(phone) { _phone = phone; }
 
     let toString = function() {
-        return "id: " + _id + " name: " + _name + " price: " + _price + " count: " + _count;
+        return "id: " + _id + " order_id: " + _order_id + " name: " + _name + " phone: " + _phone;
     }
 
     let getJson = function() {
-        return { id: _id, name: _name, price: _price, count: _count }
+        return { id: _id, order_id: _order_id, name: _name, phone: _phone }
     }
 
     return {
         getId,
+        getOrderId,
         getName,
-        getPrice,
-        getCount,
+        getPhone,
         setId,
+        setOrderId,
         setName,
-        setPrice,
-        setCount,
+        setPhone,
         toString,
         getJson
     };
 }
 
 let create = function (){
-    return new addon(-1, "", 0, -1);
+    return new gift_info(-1, "", "", "");
 }
 
 let createFromJson = function (json){
-    return new addon(json.id, json.name, json.price, json.count);
+    return new addon(json.id, json.order_id, json.name, json.phone);
 }
 
 let createArrayFromJson = function (jsonArray){

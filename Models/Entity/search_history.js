@@ -1,48 +1,53 @@
 
-function addon(id, name, price, count){
+function service_charge(id, customer_id, description, type, time){
     let _id = id;
-    let _name = name;
-    let _price = price;
-    let _count = count;
+    let _customer_id = customer_id;
+    let _description = description;
+    let _type = type;
+    let _time = time;
 
     let getId = function () { return _id; }
-    let getName = function() { return _name; }
-    let getPrice = function() { return _price; }
-    let getCount = function() { return _count; }
+    let getCustomerId = function() { return _customer_id; }
+    let getDescription = function() { return _description; }
+    let getType = function() { return _type; }
+    let getTime = function() { return _time; }
 
     let setId = function(id) { _id = id; }
-    let setName = function(name) { _name = name; }
-    let setPrice = function(price) { _price = price; }
-    let setCount = function(count) { _count = count; }
+    let setCustomerId = function(customer_id) { _customer_id = customer_id; }
+    let setDescription = function(description) { _description = description; }
+    let setType = function(type) { _type = type; }
+    let setTime = function(time) { _time = time; }
 
     let toString = function() {
-        return "id: " + _id + " name: " + _name + " price: " + _price + " count: " + _count;
+        return "id: " + _id + " customer_id: " + _customer_id + " description: " + _description + " type: " + _type + " time: " + _time;
     }
 
     let getJson = function() {
-        return { id: _id, name: _name, price: _price, count: _count }
+        return { id: _id, customer_id: _customer_id, description: _description, type: _type, time: _time }
     }
 
     return {
         getId,
-        getName,
-        getPrice,
-        getCount,
+        getCustomerId,
+        getDescription,
+        getType,
+        getTime,
         setId,
-        setName,
-        setPrice,
-        setCount,
+        setCustomerId,
+        setDescription,
+        setType,
+        setTime,
         toString,
         getJson
     };
 }
 
 let create = function (){
-    return new addon(-1, "", 0, -1);
+    return new search_history(-1, "", "", "", "");
 }
 
 let createFromJson = function (json){
-    return new addon(json.id, json.name, json.price, json.count);
+    return new search_history(json.id, json.customer_id, json.description, json.type, json.time);
 }
 
 let createArrayFromJson = function (jsonArray){

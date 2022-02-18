@@ -1,48 +1,48 @@
 
-function addon(id, name, price, count){
+function restaurant_image(id, restaurant_id, link, time){
     let _id = id;
-    let _name = name;
-    let _price = price;
-    let _count = count;
+    let _restaurant_id = restaurant_id;
+    let _link = link;
+    let _time = time;
 
     let getId = function () { return _id; }
-    let getName = function() { return _name; }
-    let getPrice = function() { return _price; }
-    let getCount = function() { return _count; }
+    let getRestaurantId = function() { return _restaurant_id; }
+    let getLink = function() { return _link; }
+    let getTime = function() { return _time; }
 
     let setId = function(id) { _id = id; }
-    let setName = function(name) { _name = name; }
-    let setPrice = function(price) { _price = price; }
-    let setCount = function(count) { _count = count; }
+    let setRestaurantId = function(restaurant_id) { _restaurant_id = restaurant_id; }
+    let setLink = function(price) { _link = link; }
+    let setTime = function(count) { _time = time; }
 
     let toString = function() {
-        return "id: " + _id + " name: " + _name + " price: " + _price + " count: " + _count;
+        return "id: " + _id + " restaurant_id: " + _restaurant_id + " link: " + _link + " time: " + _time;
     }
 
     let getJson = function() {
-        return { id: _id, name: _name, price: _price, count: _count }
+        return { id: _id, restaurant_id: _restaurant_id, link: _link, time: _time }
     }
 
     return {
         getId,
-        getName,
-        getPrice,
-        getCount,
+        getRestaurantId,
+        getLink,
+        getTime,
         setId,
-        setName,
-        setPrice,
-        setCount,
+        setRestaurantId,
+        setLink,
+        setTime,
         toString,
         getJson
     };
 }
 
 let create = function (){
-    return new addon(-1, "", 0, -1);
+    return new addon(-1, "", "", "");
 }
 
 let createFromJson = function (json){
-    return new addon(json.id, json.name, json.price, json.count);
+    return new addon(json.id, json.restaurant_id, json.link, json.time);
 }
 
 let createArrayFromJson = function (jsonArray){

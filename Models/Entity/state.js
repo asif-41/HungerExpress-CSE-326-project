@@ -1,48 +1,48 @@
 
-function addon(id, name, price, count){
+function state(id, order_id, description, time){
     let _id = id;
-    let _name = name;
-    let _price = price;
-    let _count = count;
+    let _order_id = order_id;
+    let _description = description;
+    let _time = time;
 
     let getId = function () { return _id; }
-    let getName = function() { return _name; }
-    let getPrice = function() { return _price; }
-    let getCount = function() { return _count; }
+    let getOrderId = function() { return _order_id; }
+    let getDescription = function() { return _description; }
+    let getTime = function() { return _time; }
 
     let setId = function(id) { _id = id; }
-    let setName = function(name) { _name = name; }
-    let setPrice = function(price) { _price = price; }
-    let setCount = function(count) { _count = count; }
+    let setOrderId = function(order_id) { _order_id = order_id; }
+    let setDescription = function(description) { _description = description; }
+    let setTime = function(time) { _time = time; }
 
     let toString = function() {
-        return "id: " + _id + " name: " + _name + " price: " + _price + " count: " + _count;
+        return "id: " + _id + " order_id: " + _order_id + " description: " + _description + " time: " + _time;
     }
 
     let getJson = function() {
-        return { id: _id, name: _name, price: _price, count: _count }
+        return { id: _id, order_id: _order_id, description: _description, time: _time }
     }
 
     return {
         getId,
-        getName,
-        getPrice,
-        getCount,
+        getOrderId,
+        getDescription,
+        getTime,
         setId,
-        setName,
-        setPrice,
-        setCount,
+        setOrderId,
+        setDescription,
+        setTime,
         toString,
         getJson
     };
 }
 
 let create = function (){
-    return new addon(-1, "", 0, -1);
+    return new state(-1, "", "", "");
 }
 
 let createFromJson = function (json){
-    return new addon(json.id, json.name, json.price, json.count);
+    return new state(json.id, json.order_id, json.description, json.time);
 }
 
 let createArrayFromJson = function (jsonArray){

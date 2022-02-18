@@ -1,48 +1,53 @@
 
-function addon(id, name, price, count){
+function promo_type(id, type, owner_id, value, owner_type){
     let _id = id;
-    let _name = name;
-    let _price = price;
-    let _count = count;
+    let _type = type;
+    let _owner_id = owner_id;
+    let _value = value;
+    let _owner_type = owner_type;
 
     let getId = function () { return _id; }
-    let getName = function() { return _name; }
-    let getPrice = function() { return _price; }
-    let getCount = function() { return _count; }
+    let getType = function() { return _type; }
+    let getOwnerId = function() { return _owner_id; }
+    let getValue = function() { return _value; }
+    let getOwnerType = function() { return _owner_type; }
 
     let setId = function(id) { _id = id; }
-    let setName = function(name) { _name = name; }
-    let setPrice = function(price) { _price = price; }
-    let setCount = function(count) { _count = count; }
+    let setType = function(type) { _type = type; }
+    let setOwnerId = function(owner_id) { _owner_id = owner_id; }
+    let setValue = function(value) { _value = value; }
+    let setOwnerType = function(owner_type) { _owner_type = owner_type; }
 
     let toString = function() {
-        return "id: " + _id + " name: " + _name + " price: " + _price + " count: " + _count;
+        return "id: " + _id + " type: " + _type + " owner_id: " + _owner_id + " value: " + _value + " owner_type: " + _owner_type;
     }
 
     let getJson = function() {
-        return { id: _id, name: _name, price: _price, count: _count }
+        return { id: _id, type: _type, owner_id: _owner_id, value: _value, owner_type: _owner_type }
     }
 
     return {
         getId,
-        getName,
-        getPrice,
-        getCount,
+        getType,
+        getOwnerId,
+        getValue,
+        getOwnerType,
         setId,
-        setName,
-        setPrice,
-        setCount,
+        setType,
+        setOwnerId,
+        setValue,
+        setOwnerType,
         toString,
         getJson
     };
 }
 
 let create = function (){
-    return new addon(-1, "", 0, -1);
+    return new promo_type(-1, "", "", "", "");
 }
 
 let createFromJson = function (json){
-    return new addon(json.id, json.name, json.price, json.count);
+    return new promo_type(json.id, json.type, json.owner_id, json.value, json.owner_type);
 }
 
 let createArrayFromJson = function (jsonArray){
