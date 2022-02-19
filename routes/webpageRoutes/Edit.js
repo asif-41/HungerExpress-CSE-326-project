@@ -6,13 +6,10 @@ var restaurantBoundary = require('./../../Models/Boundary/Restaurant_Boundary');
 /* GET home page. */
 router.get('/', async function(req, res, next) {
 
-  let category_id = req.query.category_id;
-  if(category_id == null) category_id = -1;
+  let data = await restaurantBoundary.getMenu(215);
 
-  let data = await restaurantBoundary.getMenu(category_id, 215);
-
-  res.render('Webpages/Menu',
-      { title: 'Menu',
+  res.render('Webpages/Edit',
+      { title: 'Edit',
                data: data
       });
 });

@@ -23,8 +23,9 @@ async function retrieve_data(table_name, column_names){
 }
 
 
-// data = await retrieve_data_conditional("addon", ["id", "name"],
-//     {column_name: ["id"], value: [100], rel: [">="]});
+// let data = await retrieve_data_conditional("voucher", ["order_id", "time", "coin_history_id"],
+//     {column_name: ["order_id", "time", "coin_history_id"], rel: ["=", "=", "!="],
+//              value: [100, "2022-03-31 19:44:49.368216", null]});
 async function retrieve_data_conditional(table_name, column_names, condition){
     try{
         let query = "SELECT ";
@@ -54,9 +55,8 @@ async function retrieve_data_conditional(table_name, column_names, condition){
 }
 
 
-// let data = await retrieve_data_conditional("voucher", ["order_id", "time", "coin_history_id"],
-//     {column_name: ["order_id", "time", "coin_history_id"], rel: ["=", "=", "!="],
-//              value: [100, "2022-03-31 19:44:49.368216", null]});
+// pool_data = await SqlHelper.retrieve_data_conditional("category", ["id", "name"],
+//     {column_name: ["restaurant_id"], value: [restaurant_id], rel: ["="]} );
 async function retrieve_data_join(table_name_1, table_name_2, column_names_1, column_names_2, condition){
     try{
         let query = "SELECT ";
