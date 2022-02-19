@@ -1,26 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var pool = require('./../../db_config');
+
+var restaurantBoundary = require('./../../Models/Boundary/Restaurant_Boundary');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('Webpages/menu', { title: 'Express' });
+router.get('/', async function(req, res, next) {
+
+  let data = await restaurantBoundary.getMenu(215);
+
+  res.render('Webpages/Menu',
+      { title: 'Menu',
+               data: data
+      });
 });
-
-
-
-
-//  AJAX ekhane ashbe!
-router.post('/', function (req, res, next){
-
-
-  console.log(req.body);
-  let data = req.body.data;
-  console.log("ashchhe: " + data);
-
-  res.render('Webpages/menu', { title: 'Express' });
-});
-
-
 
 module.exports = router;

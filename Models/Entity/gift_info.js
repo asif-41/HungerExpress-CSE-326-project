@@ -42,7 +42,7 @@ let create = function (){
 }
 
 let createFromJson = function (json){
-    return new addon(json.id, json.order_id, json.name, json.phone);
+    return new gift_info(json.id, json.order_id, json.name, json.phone);
 }
 
 let createArrayFromJson = function (jsonArray){

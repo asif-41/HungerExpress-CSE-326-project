@@ -30,24 +30,10 @@ app.use('/users', usersRouter);
 
 
 
+var MenuRouter = require("./routes/webpageRoutes/Menu");
 
 
-var dashboardRouter = require('./routes/webpageRoutes/Dashboard');
-var editRouter = require('./routes/webpageRoutes/Edit');
-var menuRouter = require('./routes/webpageRoutes/Menu');
-var menuStatsRouter = require('./routes/webpageRoutes/Menu_Stats');
-var statsRouter = require('./routes/webpageRoutes/Statistics');
-
-
-
-app.use('/dashboard', dashboardRouter);
-app.use('/edit', editRouter);
-app.use('/menu', menuRouter);
-app.use('/menu_stats', menuStatsRouter);
-app.use('/stats', statsRouter);
-
-
-
+app.use('/restaurant/menu', MenuRouter);
 
 
 

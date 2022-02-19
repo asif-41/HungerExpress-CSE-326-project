@@ -1,7 +1,7 @@
 # HungerExpress
 
 # Instructions:
-1. install postgre
+1. install postgre, pg-format
 2. create database with name "HungerExpress"
 3. edit "db_config.js" as required
 4. execute bin/www.js 
