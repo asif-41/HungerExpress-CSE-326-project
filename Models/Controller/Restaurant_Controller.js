@@ -103,6 +103,10 @@ async function getMenu(restaurant_id){
                 {column_name: ["item_id"], value: [item_ids[j].item_id], rel: ["="]} );
             d.images = pool_data.data;
 
+            pool_data = await SqlHelper.retrieve_data_conditional("item_type", ["*"],
+                {column_name: ["item_id"], value: [item_ids[j].item_id], rel: ["="]} );
+            d.item_type = pool_data.data;
+
             item_details.push(d);
         }
         items.push( {category: restaurant_category[i].id, items: item_details} );
