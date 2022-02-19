@@ -96,7 +96,14 @@ async function getMenu(restaurant_id){
         for(let j in item_ids){
             pool_data = await SqlHelper.retrieve_data_conditional("item", ["*"],
                 {column_name: ["id"], value: [item_ids[j].item_id], rel: ["="]} );
-            item_details.push(pool_data.data[0]);
+
+            let d = pool_data.data[0];
+
+            pool_data = await SqlHelper.retrieve_data_conditional("item_image", ["image_id"],
+                {column_name: ["item_id"], value: [item_ids[j].item_id], rel: ["="]} );
+            d.images = pool_data.data;
+
+            item_details.push(d);
         }
         items.push( {category: restaurant_category[i].id, items: item_details} );
     }

@@ -31,9 +31,11 @@ app.use('/users', usersRouter);
 
 
 var MenuRouter = require("./routes/webpageRoutes/Menu");
+var ImageRouter = require("./routes/webpageRoutes/Image");
 
 
 app.use('/restaurant/menu', MenuRouter);
+app.use('/restaurant/image', ImageRouter);
 
 
 
