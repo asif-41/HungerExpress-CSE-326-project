@@ -11,8 +11,8 @@ async function getMenu(category_id, restaurant_id) {
     return data;
 }
 
-async function getItemDetails(item_id){
-    let data = await RestaurantController.getItemDetails(item_id);
+async function getItemDetails(item_id, restaurant_id){
+    let data = await RestaurantController.getItemDetails(item_id, restaurant_id);
     return data;
 }
 

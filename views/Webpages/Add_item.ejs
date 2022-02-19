@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+
+    <link rel='stylesheet' href='/stylesheets/webpageStyleSheets/Add_item.css' />
+
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p>Add_item e ashchhi!</p>
+
+    <br />
+
+
+    <!--
+        FORM ER SHITS EKHANE
+    -->
+<!--    <form action="/restaurant/add_item" method="post">-->
+<!--      -->
+<!--      <input type="text" name="type" value="item" hidden>-->
+<!--      <input type="text" name="name" value="">-->
+<!--      <input type="text" name="count" value="">-->
+<!--      <input type="text" name="description" value="">-->
+<!--      <input type="text" name="category" value="">-->
+<!--      <input type="file" name="image" value="">-->
+
+
+<!--      <br>-->
+
+<!--        <input type="text" name="max_count" value="3" hidden>-->
+
+<!--        <input type="text" name="price1" value="">-->
+<!--        <input type="text" name="weight1" value="">-->
+<!--        <input type="text" name="name1" value="">-->
+
+
+<!--      <br>-->
+
+<!--        <input type="text" name="price3" value="">-->
+<!--        <input type="text" name="weight3" value="">-->
+<!--        <input type="text" name="name3" value="">-->
+
+
+<!--      <input type="submit">-->
+<!--    </form>-->
+
+    <form action="/restaurant/add_item" method="post" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <input type="submit" value="Upload">
+    </form>
+
+
+
+
+    <script src="/javascripts/webpageJavascripts/Add_item.js"></script>
+  </body>
+</html>

@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var upload = require('express-fileupload');
 
 
 
@@ -34,12 +35,16 @@ var MenuRouter = require("./routes/webpageRoutes/Menu");
 var ImageRouter = require("./routes/webpageRoutes/Image");
 var EditRouter = require("./routes/webpageRoutes/Edit");
 var ShowItemRouter = require("./routes/webpageRoutes/Show_item");
+var AddItemRouter = require("./routes/webpageRoutes/Add_item");
 
 
+app.use(upload());
 app.use('/restaurant/menu', MenuRouter);
 app.use('/restaurant/image', ImageRouter);
 app.use('/restaurant/edit', EditRouter);
 app.use('/restaurant/show_item', ShowItemRouter);
+app.use('/restaurant/add_item', AddItemRouter);
+
 
 
 
