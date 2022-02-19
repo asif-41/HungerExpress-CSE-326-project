@@ -16,8 +16,18 @@ async function getItemDetails(item_id, restaurant_id){
     return data;
 }
 
+
+
+async function addItem(item_data, image_data, restaurant_id){
+    let data = await RestaurantController.addItem(item_data, image_data, restaurant_id);
+    return data;
+}
+
+
 module.exports = {
     getAll,
     getMenu,
-    getItemDetails
+    getItemDetails,
+
+    addItem
 }

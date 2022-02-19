@@ -238,6 +238,10 @@ async function getItemDetails(item_id, restaurant_id){
         addon.push(pool_data.data[0]);
     }
 
+    pool_data = await SqlHelper.retrieve_data_conditional("item_image", ["image_id"],
+        {column_name: ["item_id"], value: [item_id], rel: ["="]} );
+    let images = pool_data.data;
+
     pool_data = await SqlHelper.retrieve_data_conditional("item_review", ["*"],
         {column_name: ["item_id"], value: [item_id], rel: ["="]} );
     let reviews = pool_data.data;
@@ -259,12 +263,35 @@ async function getItemDetails(item_id, restaurant_id){
         item_types: item_types,
         addon: addon,
         category: category,
-        reviews: reviews
+        reviews: reviews,
+        images: images
     };
+}
+
+
+
+
+
+async function addItem(item_data, image_data, restaurant_id){
+    try{
+        console.log(item_data);
+        console.log(image_data);
+        console.log(restaurant_id);
+
+
+        let item_id = 1;
+
+        return {status: true, data: getItemDetails(item_data, restaurant_id)};
+    }catch (e){
+        console.log("Error in addItem: " + e);
+        return {status: false};
+    }
 }
 
 module.exports = {
     getAll,
     getMenu,
-    getItemDetails
+    getItemDetails,
+
+    addItem
 }

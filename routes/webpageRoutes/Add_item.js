@@ -4,31 +4,35 @@ var upload = require('express-fileupload');
 
 var restaurantBoundary = require('./../../Models/Boundary/Restaurant_Boundary');
 
+var ImageFolder = 'C:\\Users\\Kamal\\WebstormProjects\\untitled\\public\\images\\';
+
+
+
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-    let data = {};
+
     res.render('Webpages/Add_item',
         { title: 'Add_item',
-            data: data
+            data: {}
         });
 });
 
 
 router.post('/', async function(req, res, next) {
 
-
-
     let inp = req.body;
-    console.log("Ekhane ashchhe!");
-    console.log(inp);
-    console.log(inp.image);
-    //console.log(req);
+    let img = req.files;
 
-    let data = {};
-    res.render('Webpages/Add_item',
-        { title: 'Add_item',
-            data: data
-        });
+    let ret = restaurantBoundary.addItem(inp, img, 215);
+    if(ret.status){
+        console.log(ret);
+    }
+    else{
+        res.render('Webpages/Add_item',
+            { title: 'Add_item',
+                data: { status: false }
+            });
+    }
 });
 
 module.exports = router;
