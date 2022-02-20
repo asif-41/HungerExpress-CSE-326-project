@@ -18,6 +18,11 @@ async function getItemDetails(item_id, restaurant_id){
 
 
 
+async function getCategories(restaurant_id){
+    let data = await RestaurantController.getCategories(restaurant_id);
+    return data;
+}
+
 async function addItem(item_data, image_data, restaurant_id){
     let data = await RestaurantController.addItem(item_data, image_data, restaurant_id);
     return data;
@@ -29,5 +34,6 @@ module.exports = {
     getMenu,
     getItemDetails,
 
-    addItem
+    addItem,
+    getCategories
 }

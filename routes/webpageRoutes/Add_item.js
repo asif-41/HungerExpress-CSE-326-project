@@ -11,9 +11,11 @@ var ImageFolder = 'C:\\Users\\Kamal\\WebstormProjects\\untitled\\public\\images\
 /* GET home page. */
 router.get('/', async function(req, res, next) {
 
+    let data = await restaurantBoundary.getCategories(215);
+
     res.render('Webpages/Add_item',
         { title: 'Add_item',
-            data: {}
+            data: data
         });
 });
 

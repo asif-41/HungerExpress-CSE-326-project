@@ -275,6 +275,16 @@ async function getItemDetails(item_id, restaurant_id){
 
 
 
+async function getCategories(restaurant_id){
+    let pool_data;
+
+    pool_data = await SqlHelper.retrieve_data_conditional("category", ["id", "name"],
+        {column_name: ["restaurant_id"], value: [restaurant_id], rel: ["="]} );
+    let restaurant_category = pool_data.data;
+    return {
+        categories: restaurant_category
+    };
+}
 
 async function addItem(item_data, image_data, restaurant_id){
     try{
@@ -356,5 +366,6 @@ module.exports = {
     getMenu,
     getItemDetails,
 
-    addItem
+    addItem,
+    getCategories
 }
