@@ -344,7 +344,7 @@ async function addItem(item_data, image_data, restaurant_id){
                 }
             });
         }
-        return {status: true, item_id: item_id};
+        return {status: true, item_id: item_id, item_name: item_data.name};
     }catch (e){
         console.log("Error in addItem: " + e);
         return {status: false};

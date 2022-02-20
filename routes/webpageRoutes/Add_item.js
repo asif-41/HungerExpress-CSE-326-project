@@ -27,7 +27,8 @@ router.post('/', async function(req, res, next) {
     if(ret.status){
         res.render('Webpages/Add_item_response',
             { title: 'Add_item_response',
-                item_id: ret.item_id
+                item_id: ret.item_id,
+                item_name: ret.item_name
             });
     }
     else{
