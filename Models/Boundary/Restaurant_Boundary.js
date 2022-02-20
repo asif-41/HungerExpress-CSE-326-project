@@ -29,11 +29,18 @@ async function addItem(item_data, image_data, restaurant_id){
 }
 
 
+async function editTable(inp_data, restaurant_id){
+    let data = await RestaurantController.editTable(inp_data, restaurant_id);
+    return data;
+}
+
+
 module.exports = {
     getAll,
     getMenu,
     getItemDetails,
 
     addItem,
-    getCategories
+    getCategories,
+    editTable
 }

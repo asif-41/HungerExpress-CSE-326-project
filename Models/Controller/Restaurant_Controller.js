@@ -4,6 +4,7 @@ const Item = require("./../Entity/item");
 const ItemType = require("./../Entity/item_type");
 const ItemCategory = require("./../Entity/item_category");
 const ItemImage = require("./../Entity/item_image");
+const Category = require("./../Entity/category");
 
 var ImageFolder = 'C:\\Users\\Kamal\\WebstormProjects\\untitled\\public\\images\\';
 
@@ -361,11 +362,101 @@ async function addItem(item_data, image_data, restaurant_id){
     }
 }
 
+
+
+
+async function editTable(inp_data, restaurant_id){
+
+    let pool_data;
+
+    if(inp_data.type == "category"){
+        if(inp_data.action == "create"){
+            try{
+                pool_data = await SqlHelper.retrieve_data_conditional("category", ["id"],
+                    {column_name: ["name"], value: [inp_data.name], rel: ["="]} )
+                let ret = pool_data.data;
+                if(ret.length > 0){
+                    return { success: false, id: -1, name: "" };
+                }
+
+                let category = Category.create();
+                category.setName(inp_data.name);
+                category.setRestaurantId(restaurant_id);
+
+                pool_data = await SqlHelper.create_record("category", category);
+                let id = pool_data.id;
+
+                return { success: true, id: id, name: inp_data.name };
+            }catch (e){
+                console.log("Error in edit Table: " + e);
+                return {success: false};
+            }
+        }
+        else if(inp_data.action == "edit_name"){
+            try{
+                let newName = inp_data.category_name;
+                let id = inp_data.category_id;
+
+                pool_data = await SqlHelper.update_record("category", parseInt(id),
+                    {column_names: ["name"], value: [newName]} )
+
+                return { success: true, id: id, name: newName };
+            }catch (e){
+                console.log("Error in edit Table: " + e);
+                return {success: false};
+            }
+        }
+        else if(inp_data.action == "edit_items"){
+            try{
+                let action = inp_data.action_details;
+                let id = inp_data.category_id;
+                let cnt = inp_data.count;
+                let ret = [];
+
+                for(let i=1; i<=cnt; i++){
+                    for(let j in inp_data){
+                        let key = "item_id" + i;
+                        if(inp_data[key] != null){
+
+                            if( !(action == "remove" || action == "add") ) continue;
+
+                            pool_data = await SqlHelper.retrieve_data_conditional("item_category",
+                                ["id"], {column_name: ["item_id", "category_id"],
+                                    rel: ["=", "="], value: [ parseInt(inp_data[key]) , id]});
+                            let d = pool_data.data;
+                            if(d.length == 0 && action == "remove") continue;
+                            if(d.length > 0 && action == "add") continue;
+
+                            if(action == "remove") {
+                                await SqlHelper.delete_record("item_category", d[0].id);
+                                ret.push(d[0].id);
+                            }
+                            else if(action == "add") {
+                                pool_data = await SqlHelper.create_record("item_category",
+                                    ItemCategory.createFromJson({id: -1, item_id: parseInt(inp_data[key]), category_id: id}));
+                                ret.push(pool_data.id);
+                            }
+
+                        }
+                    }
+                }
+                return { success: true, ids: ret };
+            }catch (e){
+                console.log("Error in edit Table: " + e);
+                return {success: false};
+            }
+        }
+    }
+
+}
+
+
 module.exports = {
     getAll,
     getMenu,
     getItemDetails,
 
     addItem,
-    getCategories
+    getCategories,
+    editTable
 }
