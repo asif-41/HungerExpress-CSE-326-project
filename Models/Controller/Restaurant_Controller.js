@@ -1,7 +1,11 @@
 
 const SqlHelper = require("./../SQLHelper");
+const Item = require("./../Entity/item");
+const ItemType = require("./../Entity/item_type");
+const ItemCategory = require("./../Entity/item_category");
+const ItemImage = require("./../Entity/item_image");
 
-
+var ImageFolder = 'C:\\Users\\Kamal\\WebstormProjects\\untitled\\public\\images\\';
 
 // let pool_data;
 // pool_data = await SqlHelper.retrieve_data_conditional("restaurant", ["*"],
@@ -274,14 +278,73 @@ async function getItemDetails(item_id, restaurant_id){
 
 async function addItem(item_data, image_data, restaurant_id){
     try{
-        console.log(item_data);
-        console.log(image_data);
-        console.log(restaurant_id);
+        let pool_data;
 
+        let category_id = parseInt( item_data.category );
+        pool_data = await SqlHelper.retrieve_data_conditional("category", ["id"],
+            {column_name: ["id"], value: [category_id], rel: ["="]} );
+        let category_details = pool_data.data;
 
-        let item_id = 1;
+        if(category_details.length == 0) {
+            console.log("Invalid category!");
+            return {status: false};
+        }
 
-        return {status: true, data: getItemDetails(item_data, restaurant_id)};
+        let item = Item.createFromJson({ id: - 1, name: item_data.name,
+                                                description: item_data.description,
+                                                count: parseInt( item_data.count ),
+                                                rating: 0 });
+
+        pool_data = await SqlHelper.create_record("item", item);
+        if( ! pool_data.success ) {
+            console.log("Cannot create item");
+            return {status: false};
+        }
+        let item_id = pool_data.id;
+
+        let item_category = ItemCategory.createFromJson({id: - 1, item_id: item_id, category_id: category_id });
+        pool_data = await SqlHelper.create_record("item_category", item_category);
+
+        let cnt = parseInt(item_data.max_count);
+        for(let i=1; i<=cnt; i++){
+            let item_type = ItemType.create();
+            let keys = [ "price"+i, "weight"+i, "name"+i ];
+            let data = [];
+            for(let j=0; j<3; j++){
+                if(item_data[keys[j]] != null) {
+                    if(j < 2) data.push( parseInt( item_data[keys[j]] ) );
+                    else data.push( item_data[keys[j]] );
+                }
+            }
+            if(data.length < 3) continue;
+
+            item_type.setPrice(data[0]);
+            item_type.setWeight(data[1]);
+            item_type.setName(data[2]);
+            item_type.setItemId(item_id);
+
+            pool_data = await SqlHelper.create_record("item_type", item_type);
+        }
+
+        if(image_data != null){
+
+            pool_data = await SqlHelper.get_max("item_image", "image_id",
+            { column_name:[], value:[], rel:[]});
+            let image_id = pool_data.data[0].max + 1;
+
+            await image_data.image.mv(ImageFolder + image_id + ".png", async function (err) {
+                if(err){
+                    console.log("Error in saving image! " + err);
+                }
+                else{
+                    let item_mage = ItemImage.createFromJson({ id: - 1,
+                                            item_id: item_id,
+                                            image_id: image_id });
+                    pool_data = await SqlHelper.create_record("item_image", item_mage);
+                }
+            });
+        }
+        return {status: true, item_id: item_id};
     }catch (e){
         console.log("Error in addItem: " + e);
         return {status: false};

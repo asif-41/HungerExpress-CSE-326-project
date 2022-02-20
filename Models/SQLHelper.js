@@ -132,7 +132,6 @@ async function create_record(table_name, object){
             rel.push("=");
             value.push(data[i-1]);
         }
-
         let ret_data = await retrieve_data_conditional(table_name, ["id"],
             { column_name: column_name, value: value, rel: rel});
 
@@ -182,6 +181,29 @@ async function update_record(table_name, id, data){
 }
 
 
+// let max_image_id = SqlHelper.get_max("item_image", "image_id",
+//     { column_name:[], value:[], rel:[]});
+async function get_max(table_name, column_name, condition){
+    try{
+        let query = "SELECT MAX(" + column_name + ") FROM " + table_name;
+        if (condition.column_name.length > 0) query += " WHERE "
+
+        for(let i=0; i<condition.column_name.length; i++){
+            let col = condition.column_name[i];
+            let rel = condition.rel[i];
+
+            query += col + " " + rel + " %L";
+            if(i < condition.column_name.length-1) query += " AND ";
+        }
+        query += ";";
+
+        let result = await pool.query(query, condition.value);
+        return {status: true, data: result.rows};
+    }catch (e){
+        console.log("Error in get_max: " + e);
+        return {status: false, data: [], error: e};
+    }
+}
 
 
 
@@ -192,5 +214,6 @@ module.exports={
     retrieve_data_conditional,
     create_record,
     delete_record,
-    update_record
+    update_record,
+    get_max
 }

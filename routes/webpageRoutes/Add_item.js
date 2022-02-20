@@ -22,10 +22,13 @@ router.post('/', async function(req, res, next) {
 
     let inp = req.body;
     let img = req.files;
+    let ret = await restaurantBoundary.addItem(inp, img, 215);
 
-    let ret = restaurantBoundary.addItem(inp, img, 215);
     if(ret.status){
-        console.log(ret);
+        res.render('Webpages/Add_item_response',
+            { title: 'Add_item_response',
+                item_id: ret.item_id
+            });
     }
     else{
         res.render('Webpages/Add_item',
