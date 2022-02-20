@@ -5,7 +5,7 @@
 -- Dumped from database version 13.2
 -- Dumped by pg_dump version 13.2
 
--- Started on 2022-02-20 01:01:26
+-- Started on 2022-02-20 19:12:45
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -18,8 +18,9 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+DROP DATABASE "HungerExpress";
 --
--- TOC entry 3426 (class 1262 OID 25203)
+-- TOC entry 3434 (class 1262 OID 25203)
 -- Name: HungerExpress; Type: DATABASE; Schema: -; Owner: postgres
 --
 
@@ -77,7 +78,7 @@ CREATE SEQUENCE public.addon_id_seq
 ALTER TABLE public.addon_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3427 (class 0 OID 0)
+-- TOC entry 3435 (class 0 OID 0)
 -- Dependencies: 201
 -- Name: addon_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -122,7 +123,7 @@ CREATE SEQUENCE public.address_id_seq
 ALTER TABLE public.address_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3428 (class 0 OID 0)
+-- TOC entry 3436 (class 0 OID 0)
 -- Dependencies: 203
 -- Name: address_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -163,7 +164,7 @@ CREATE SEQUENCE public.admin_id_seq
 ALTER TABLE public.admin_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3429 (class 0 OID 0)
+-- TOC entry 3437 (class 0 OID 0)
 -- Dependencies: 205
 -- Name: admin_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -206,7 +207,7 @@ CREATE SEQUENCE public.cart_id_seq
 ALTER TABLE public.cart_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3430 (class 0 OID 0)
+-- TOC entry 3438 (class 0 OID 0)
 -- Dependencies: 207
 -- Name: cart_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -277,7 +278,7 @@ CREATE SEQUENCE public.category_id_seq
 ALTER TABLE public.category_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3431 (class 0 OID 0)
+-- TOC entry 3439 (class 0 OID 0)
 -- Dependencies: 211
 -- Name: category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -318,7 +319,7 @@ CREATE SEQUENCE public.coin_history_id_seq
 ALTER TABLE public.coin_history_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3432 (class 0 OID 0)
+-- TOC entry 3440 (class 0 OID 0)
 -- Dependencies: 213
 -- Name: coin_history_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -359,7 +360,7 @@ CREATE SEQUENCE public.coin_use_type_id_seq
 ALTER TABLE public.coin_use_type_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3433 (class 0 OID 0)
+-- TOC entry 3441 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: coin_use_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -421,7 +422,7 @@ CREATE SEQUENCE public.customer_address_id_seq
 ALTER TABLE public.customer_address_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3434 (class 0 OID 0)
+-- TOC entry 3442 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: customer_address_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -446,7 +447,7 @@ CREATE SEQUENCE public.customer_id_seq
 ALTER TABLE public.customer_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3435 (class 0 OID 0)
+-- TOC entry 3443 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: customer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -486,7 +487,7 @@ CREATE SEQUENCE public.customer_image_id_seq
 ALTER TABLE public.customer_image_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3436 (class 0 OID 0)
+-- TOC entry 3444 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: customer_image_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -530,7 +531,7 @@ CREATE SEQUENCE public.delivery_address_id_seq
 ALTER TABLE public.delivery_address_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3437 (class 0 OID 0)
+-- TOC entry 3445 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: delivery_address_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -570,7 +571,7 @@ CREATE SEQUENCE public.gift_info_id_seq
 ALTER TABLE public.gift_info_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3438 (class 0 OID 0)
+-- TOC entry 3446 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: gift_info_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -611,7 +612,7 @@ CREATE SEQUENCE public.invoice_id_seq
 ALTER TABLE public.invoice_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3439 (class 0 OID 0)
+-- TOC entry 3447 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: invoice_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -666,7 +667,7 @@ CREATE SEQUENCE public.item_addon_id_seq
 ALTER TABLE public.item_addon_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3440 (class 0 OID 0)
+-- TOC entry 3448 (class 0 OID 0)
 -- Dependencies: 263
 -- Name: item_addon_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -705,7 +706,7 @@ CREATE SEQUENCE public.item_category_id_seq
 ALTER TABLE public.item_category_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3441 (class 0 OID 0)
+-- TOC entry 3449 (class 0 OID 0)
 -- Dependencies: 267
 -- Name: item_category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -730,7 +731,7 @@ CREATE SEQUENCE public.item_id_seq
 ALTER TABLE public.item_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3442 (class 0 OID 0)
+-- TOC entry 3450 (class 0 OID 0)
 -- Dependencies: 229
 -- Name: item_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -769,7 +770,7 @@ CREATE SEQUENCE public.item_image_id_seq
 ALTER TABLE public.item_image_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3443 (class 0 OID 0)
+-- TOC entry 3451 (class 0 OID 0)
 -- Dependencies: 265
 -- Name: item_image_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -810,7 +811,7 @@ CREATE SEQUENCE public.item_review_id_seq
 ALTER TABLE public.item_review_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3444 (class 0 OID 0)
+-- TOC entry 3452 (class 0 OID 0)
 -- Dependencies: 231
 -- Name: item_review_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -851,7 +852,7 @@ CREATE SEQUENCE public.item_type_id_seq
 ALTER TABLE public.item_type_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3445 (class 0 OID 0)
+-- TOC entry 3453 (class 0 OID 0)
 -- Dependencies: 269
 -- Name: item_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -912,7 +913,7 @@ CREATE SEQUENCE public.orderr_id_seq
 ALTER TABLE public.orderr_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3446 (class 0 OID 0)
+-- TOC entry 3454 (class 0 OID 0)
 -- Dependencies: 234
 -- Name: orderr_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -954,7 +955,7 @@ CREATE SEQUENCE public.payment_info_id_seq
 ALTER TABLE public.payment_info_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3447 (class 0 OID 0)
+-- TOC entry 3455 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: payment_info_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1040,7 +1041,7 @@ CREATE SEQUENCE public.promo_type_id_seq
 ALTER TABLE public.promo_type_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3448 (class 0 OID 0)
+-- TOC entry 3456 (class 0 OID 0)
 -- Dependencies: 241
 -- Name: promo_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1080,7 +1081,7 @@ CREATE SEQUENCE public.promo_use_id_seq
 ALTER TABLE public.promo_use_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3449 (class 0 OID 0)
+-- TOC entry 3457 (class 0 OID 0)
 -- Dependencies: 243
 -- Name: promo_use_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1144,7 +1145,7 @@ CREATE SEQUENCE public.restaurant_address_id_seq
 ALTER TABLE public.restaurant_address_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3450 (class 0 OID 0)
+-- TOC entry 3458 (class 0 OID 0)
 -- Dependencies: 246
 -- Name: restaurant_address_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1169,7 +1170,7 @@ CREATE SEQUENCE public.restaurant_id_seq
 ALTER TABLE public.restaurant_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3451 (class 0 OID 0)
+-- TOC entry 3459 (class 0 OID 0)
 -- Dependencies: 247
 -- Name: restaurant_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1209,7 +1210,7 @@ CREATE SEQUENCE public.restaurant_image_id_seq
 ALTER TABLE public.restaurant_image_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3452 (class 0 OID 0)
+-- TOC entry 3460 (class 0 OID 0)
 -- Dependencies: 249
 -- Name: restaurant_image_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1252,7 +1253,7 @@ CREATE SEQUENCE public.restaurant_manager_id_seq
 ALTER TABLE public.restaurant_manager_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3453 (class 0 OID 0)
+-- TOC entry 3461 (class 0 OID 0)
 -- Dependencies: 251
 -- Name: restaurant_manager_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1293,7 +1294,7 @@ CREATE SEQUENCE public.restaurant_review_id_seq
 ALTER TABLE public.restaurant_review_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3454 (class 0 OID 0)
+-- TOC entry 3462 (class 0 OID 0)
 -- Dependencies: 253
 -- Name: restaurant_review_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1348,7 +1349,7 @@ CREATE SEQUENCE public.search_history_id_seq
 ALTER TABLE public.search_history_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3455 (class 0 OID 0)
+-- TOC entry 3463 (class 0 OID 0)
 -- Dependencies: 256
 -- Name: search_history_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1389,7 +1390,7 @@ CREATE SEQUENCE public.service_charge_id_seq
 ALTER TABLE public.service_charge_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3456 (class 0 OID 0)
+-- TOC entry 3464 (class 0 OID 0)
 -- Dependencies: 258
 -- Name: service_charge_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1429,7 +1430,7 @@ CREATE SEQUENCE public.state_id_seq
 ALTER TABLE public.state_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3457 (class 0 OID 0)
+-- TOC entry 3465 (class 0 OID 0)
 -- Dependencies: 260
 -- Name: state_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1469,7 +1470,7 @@ CREATE SEQUENCE public.voucher_id_seq
 ALTER TABLE public.voucher_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3458 (class 0 OID 0)
+-- TOC entry 3466 (class 0 OID 0)
 -- Dependencies: 262
 -- Name: voucher_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1766,7 +1767,7 @@ ALTER TABLE ONLY public.voucher ALTER COLUMN id SET DEFAULT nextval('public.vouc
 
 
 --
--- TOC entry 3350 (class 0 OID 25657)
+-- TOC entry 3358 (class 0 OID 25657)
 -- Dependencies: 200
 -- Data for Name: addon; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1777,7 +1778,7 @@ INSERT INTO public.addon (id, name, price, count) VALUES (101, 'Beef Kolija', 25
 
 
 --
--- TOC entry 3352 (class 0 OID 25662)
+-- TOC entry 3360 (class 0 OID 25662)
 -- Dependencies: 202
 -- Data for Name: address; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1787,7 +1788,7 @@ INSERT INTO public.address (id, location, block, road, house, apartment, postal_
 
 
 --
--- TOC entry 3354 (class 0 OID 25667)
+-- TOC entry 3362 (class 0 OID 25667)
 -- Dependencies: 204
 -- Data for Name: admin; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1797,7 +1798,7 @@ INSERT INTO public.admin (id, name, dob, phone, email) VALUES (15, 'Asif Piyal',
 
 
 --
--- TOC entry 3356 (class 0 OID 25672)
+-- TOC entry 3364 (class 0 OID 25672)
 -- Dependencies: 206
 -- Data for Name: cart; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1808,7 +1809,7 @@ INSERT INTO public.cart (id, restaurant_id, customer_id, order_time, delivery_ti
 
 
 --
--- TOC entry 3358 (class 0 OID 25677)
+-- TOC entry 3366 (class 0 OID 25677)
 -- Dependencies: 208
 -- Data for Name: cart_item; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1819,7 +1820,7 @@ INSERT INTO public.cart_item (id, item_id, cart_id, total_price, count) VALUES (
 
 
 --
--- TOC entry 3359 (class 0 OID 25680)
+-- TOC entry 3367 (class 0 OID 25680)
 -- Dependencies: 209
 -- Data for Name: cart_item_addon; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1830,7 +1831,7 @@ INSERT INTO public.cart_item_addon (id, cart_item_id, addon_id, total_price, cou
 
 
 --
--- TOC entry 3360 (class 0 OID 25683)
+-- TOC entry 3368 (class 0 OID 25683)
 -- Dependencies: 210
 -- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1841,10 +1842,15 @@ INSERT INTO public.category (id, restaurant_id, name) VALUES (102, 210, 'Steak')
 INSERT INTO public.category (id, restaurant_id, name) VALUES (103, 215, 'Chicken');
 INSERT INTO public.category (id, restaurant_id, name) VALUES (104, 215, 'Beef');
 INSERT INTO public.category (id, restaurant_id, name) VALUES (105, 215, 'Mutton');
+INSERT INTO public.category (id, restaurant_id, name) VALUES (1, 215, 'category_burger');
+INSERT INTO public.category (id, restaurant_id, name) VALUES (2, 215, 'category_burger2');
+INSERT INTO public.category (id, restaurant_id, name) VALUES (4, 215, 'category_burger4');
+INSERT INTO public.category (id, restaurant_id, name) VALUES (5, 215, 'category_burger6');
+INSERT INTO public.category (id, restaurant_id, name) VALUES (3, 215, 'notun_naama');
 
 
 --
--- TOC entry 3362 (class 0 OID 25688)
+-- TOC entry 3370 (class 0 OID 25688)
 -- Dependencies: 212
 -- Data for Name: coin_history; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1856,7 +1862,7 @@ INSERT INTO public.coin_history (id, coin_use_type_id, customer_id, voucher_id, 
 
 
 --
--- TOC entry 3364 (class 0 OID 25693)
+-- TOC entry 3372 (class 0 OID 25693)
 -- Dependencies: 214
 -- Data for Name: coin_use_type; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1869,7 +1875,7 @@ INSERT INTO public.coin_use_type (id, admin_id, available_data, coin_amount, vou
 
 
 --
--- TOC entry 3366 (class 0 OID 25698)
+-- TOC entry 3374 (class 0 OID 25698)
 -- Dependencies: 216
 -- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1883,7 +1889,7 @@ INSERT INTO public.customer (id, name, current_coin, current_address_id, custome
 
 
 --
--- TOC entry 3367 (class 0 OID 25701)
+-- TOC entry 3375 (class 0 OID 25701)
 -- Dependencies: 217
 -- Data for Name: customer_address; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1897,7 +1903,7 @@ INSERT INTO public.customer_address (id, customer_id, location, block, road, hou
 
 
 --
--- TOC entry 3370 (class 0 OID 25708)
+-- TOC entry 3378 (class 0 OID 25708)
 -- Dependencies: 220
 -- Data for Name: customer_image; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1908,7 +1914,7 @@ INSERT INTO public.customer_image (id, customer_id, link, "time") VALUES (102, 1
 
 
 --
--- TOC entry 3372 (class 0 OID 25713)
+-- TOC entry 3380 (class 0 OID 25713)
 -- Dependencies: 222
 -- Data for Name: delivery_address; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1919,7 +1925,7 @@ INSERT INTO public.delivery_address (id, location, block, road, house, apartment
 
 
 --
--- TOC entry 3374 (class 0 OID 25718)
+-- TOC entry 3382 (class 0 OID 25718)
 -- Dependencies: 224
 -- Data for Name: gift_info; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1933,7 +1939,7 @@ INSERT INTO public.gift_info (id, order_id, name, phone) VALUES (5, 100, 'heha',
 
 
 --
--- TOC entry 3376 (class 0 OID 25723)
+-- TOC entry 3384 (class 0 OID 25723)
 -- Dependencies: 226
 -- Data for Name: invoice; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1944,7 +1950,7 @@ INSERT INTO public.invoice (id, order_id, vat_amount, delivery_fee, total_price)
 
 
 --
--- TOC entry 3378 (class 0 OID 25728)
+-- TOC entry 3386 (class 0 OID 25728)
 -- Dependencies: 228
 -- Data for Name: item; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1954,10 +1960,18 @@ INSERT INTO public.item (id, name, description, count, rating) VALUES (11, 'Mutt
 INSERT INTO public.item (id, name, description, count, rating) VALUES (12, 'Chicken Burger', '350 gm patty and fresh bun', 1, 4.2);
 INSERT INTO public.item (id, name, description, count, rating) VALUES (13, 'French fry', 'Fresh fries with sauce', 1, 4.1);
 INSERT INTO public.item (id, name, description, count, rating) VALUES (1, 'Chicken Biriyani', 'Chicken, potato and special masala', 100, 4.7);
+INSERT INTO public.item (id, name, description, count, rating) VALUES (67, 'pizza', 'description', 20, 0);
+INSERT INTO public.item (id, name, description, count, rating) VALUES (68, 'pizza', 'description', 20, 0);
+INSERT INTO public.item (id, name, description, count, rating) VALUES (69, 'pizzaaaaaaaa', 'description', 20, 0);
+INSERT INTO public.item (id, name, description, count, rating) VALUES (70, 'pizzaa', 'description', 20, 0);
+INSERT INTO public.item (id, name, description, count, rating) VALUES (71, 'pizzadsad', 'description', 20, 0);
+INSERT INTO public.item (id, name, description, count, rating) VALUES (72, 'pizzsa', 'description', 20, 0);
+INSERT INTO public.item (id, name, description, count, rating) VALUES (73, 'baal', 'description', 20, 0);
+INSERT INTO public.item (id, name, description, count, rating) VALUES (74, 'dd', 'description', 20, 0);
 
 
 --
--- TOC entry 3414 (class 0 OID 26192)
+-- TOC entry 3422 (class 0 OID 26192)
 -- Dependencies: 264
 -- Data for Name: item_addon; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1973,19 +1987,25 @@ INSERT INTO public.item_addon (id, item_id, addon_id) VALUES (16, 11, 102);
 
 
 --
--- TOC entry 3418 (class 0 OID 26229)
+-- TOC entry 3426 (class 0 OID 26229)
 -- Dependencies: 268
 -- Data for Name: item_category; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO public.item_category (id, item_id, category_id) VALUES (1, 11, 105);
 INSERT INTO public.item_category (id, item_id, category_id) VALUES (2, 10, 104);
-INSERT INTO public.item_category (id, item_id, category_id) VALUES (3, 12, 103);
-INSERT INTO public.item_category (id, item_id, category_id) VALUES (4, 13, 103);
+INSERT INTO public.item_category (id, item_id, category_id) VALUES (54, 67, 104);
+INSERT INTO public.item_category (id, item_id, category_id) VALUES (55, 67, 104);
+INSERT INTO public.item_category (id, item_id, category_id) VALUES (56, 69, 104);
+INSERT INTO public.item_category (id, item_id, category_id) VALUES (57, 70, 104);
+INSERT INTO public.item_category (id, item_id, category_id) VALUES (60, 73, 104);
+INSERT INTO public.item_category (id, item_id, category_id) VALUES (61, 74, 104);
+INSERT INTO public.item_category (id, item_id, category_id) VALUES (68, 12, 103);
+INSERT INTO public.item_category (id, item_id, category_id) VALUES (69, 13, 103);
 
 
 --
--- TOC entry 3416 (class 0 OID 26218)
+-- TOC entry 3424 (class 0 OID 26218)
 -- Dependencies: 266
 -- Data for Name: item_image; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1995,10 +2015,17 @@ INSERT INTO public.item_image (id, image_id, item_id) VALUES (2, 2, 12);
 INSERT INTO public.item_image (id, image_id, item_id) VALUES (3, 3, 12);
 INSERT INTO public.item_image (id, image_id, item_id) VALUES (4, 4, 11);
 INSERT INTO public.item_image (id, image_id, item_id) VALUES (5, 5, 11);
+INSERT INTO public.item_image (id, image_id, item_id) VALUES (25, 6, 67);
+INSERT INTO public.item_image (id, image_id, item_id) VALUES (26, 7, 67);
+INSERT INTO public.item_image (id, image_id, item_id) VALUES (27, 8, 69);
+INSERT INTO public.item_image (id, image_id, item_id) VALUES (28, 9, 70);
+INSERT INTO public.item_image (id, image_id, item_id) VALUES (29, 10, 71);
+INSERT INTO public.item_image (id, image_id, item_id) VALUES (30, 11, 72);
+INSERT INTO public.item_image (id, image_id, item_id) VALUES (31, 12, 74);
 
 
 --
--- TOC entry 3380 (class 0 OID 25733)
+-- TOC entry 3388 (class 0 OID 25733)
 -- Dependencies: 230
 -- Data for Name: item_review; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2009,7 +2036,7 @@ INSERT INTO public.item_review (id, item_id, order_id, rating, description) VALU
 
 
 --
--- TOC entry 3420 (class 0 OID 26245)
+-- TOC entry 3428 (class 0 OID 26245)
 -- Dependencies: 270
 -- Data for Name: item_type; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2023,12 +2050,26 @@ INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (6, 280, 
 INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (7, 120, 140, 'single', 12);
 INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (8, 200, 230, 'double decker', 12);
 INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (9, 250, 320, 'cheese blast', 12);
-INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (10, 100, 80, 'small', 13);
-INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (11, 150, 130, 'large', 13);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (94, 100, 100, 'small', 67);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (95, 120, 150, 'large', 67);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (96, 100, 100, 'small', 67);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (97, 120, 150, 'large', 67);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (98, 100, 100, 'small', 69);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (99, 120, 150, 'large', 69);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (100, 100, 100, 'small', 70);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (101, 120, 150, 'large', 70);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (102, 100, 100, 'small', 71);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (103, 120, 150, 'large', 71);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (104, 100, 100, 'small', 72);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (105, 120, 150, 'large', 72);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (106, 100, 100, 'small', 73);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (107, 120, 150, 'large', 73);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (108, 100, 100, 'small', 74);
+INSERT INTO public.item_type (id, weight, price, name, item_id) VALUES (109, 120, 150, 'large', 74);
 
 
 --
--- TOC entry 3383 (class 0 OID 25747)
+-- TOC entry 3391 (class 0 OID 25747)
 -- Dependencies: 233
 -- Data for Name: normal_order; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2037,7 +2078,7 @@ INSERT INTO public.normal_order (id, cart_id, delivery_address_id, restaurant_ma
 
 
 --
--- TOC entry 3382 (class 0 OID 25741)
+-- TOC entry 3390 (class 0 OID 25741)
 -- Dependencies: 232
 -- Data for Name: orderr; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2048,7 +2089,7 @@ INSERT INTO public.orderr (id, cart_id, delivery_address_id, restaurant_manager_
 
 
 --
--- TOC entry 3385 (class 0 OID 25755)
+-- TOC entry 3393 (class 0 OID 25755)
 -- Dependencies: 235
 -- Data for Name: payment_info; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2059,7 +2100,7 @@ INSERT INTO public.payment_info (id, order_id, account_no, type, payment_time, t
 
 
 --
--- TOC entry 3387 (class 0 OID 25760)
+-- TOC entry 3395 (class 0 OID 25760)
 -- Dependencies: 237
 -- Data for Name: pickup; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2067,7 +2108,7 @@ INSERT INTO public.payment_info (id, order_id, account_no, type, payment_time, t
 
 
 --
--- TOC entry 3388 (class 0 OID 25766)
+-- TOC entry 3396 (class 0 OID 25766)
 -- Dependencies: 238
 -- Data for Name: pre_order; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2076,7 +2117,7 @@ INSERT INTO public.pre_order (id, cart_id, delivery_address_id, restaurant_manag
 
 
 --
--- TOC entry 3389 (class 0 OID 25772)
+-- TOC entry 3397 (class 0 OID 25772)
 -- Dependencies: 239
 -- Data for Name: promo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2087,7 +2128,7 @@ INSERT INTO public.promo (id, promo_type_id, admin_id, min_amount, max_count, st
 
 
 --
--- TOC entry 3390 (class 0 OID 25775)
+-- TOC entry 3398 (class 0 OID 25775)
 -- Dependencies: 240
 -- Data for Name: promo_type; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2098,7 +2139,7 @@ INSERT INTO public.promo_type (id, type, owner_id, value, owner_type) VALUES (10
 
 
 --
--- TOC entry 3392 (class 0 OID 25780)
+-- TOC entry 3400 (class 0 OID 25780)
 -- Dependencies: 242
 -- Data for Name: promo_use; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2109,7 +2150,7 @@ INSERT INTO public.promo_use (id, promo_id, order_id, "time") VALUES (102, 102, 
 
 
 --
--- TOC entry 3394 (class 0 OID 25785)
+-- TOC entry 3402 (class 0 OID 25785)
 -- Dependencies: 244
 -- Data for Name: restaurant; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2121,7 +2162,7 @@ INSERT INTO public.restaurant (id, name, location, rating, current_service_charg
 
 
 --
--- TOC entry 3395 (class 0 OID 25788)
+-- TOC entry 3403 (class 0 OID 25788)
 -- Dependencies: 245
 -- Data for Name: restaurant_address; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2133,7 +2174,7 @@ INSERT INTO public.restaurant_address (id, restaurant_id, location, block, road,
 
 
 --
--- TOC entry 3398 (class 0 OID 25795)
+-- TOC entry 3406 (class 0 OID 25795)
 -- Dependencies: 248
 -- Data for Name: restaurant_image; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2141,7 +2182,7 @@ INSERT INTO public.restaurant_address (id, restaurant_id, location, block, road,
 
 
 --
--- TOC entry 3400 (class 0 OID 25800)
+-- TOC entry 3408 (class 0 OID 25800)
 -- Dependencies: 250
 -- Data for Name: restaurant_manager; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2153,7 +2194,7 @@ INSERT INTO public.restaurant_manager (id, restaurant_id, address_id, name, dob,
 
 
 --
--- TOC entry 3402 (class 0 OID 25805)
+-- TOC entry 3410 (class 0 OID 25805)
 -- Dependencies: 252
 -- Data for Name: restaurant_review; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2164,7 +2205,7 @@ INSERT INTO public.restaurant_review (id, restaurant_id, order_id, rating, descr
 
 
 --
--- TOC entry 3404 (class 0 OID 25813)
+-- TOC entry 3412 (class 0 OID 25813)
 -- Dependencies: 254
 -- Data for Name: rush_order; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2173,7 +2214,7 @@ INSERT INTO public.rush_order (id, cart_id, delivery_address_id, restaurant_mana
 
 
 --
--- TOC entry 3405 (class 0 OID 25819)
+-- TOC entry 3413 (class 0 OID 25819)
 -- Dependencies: 255
 -- Data for Name: search_history; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2181,7 +2222,7 @@ INSERT INTO public.rush_order (id, cart_id, delivery_address_id, restaurant_mana
 
 
 --
--- TOC entry 3407 (class 0 OID 25824)
+-- TOC entry 3415 (class 0 OID 25824)
 -- Dependencies: 257
 -- Data for Name: service_charge; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2189,7 +2230,7 @@ INSERT INTO public.rush_order (id, cart_id, delivery_address_id, restaurant_mana
 
 
 --
--- TOC entry 3409 (class 0 OID 25829)
+-- TOC entry 3417 (class 0 OID 25829)
 -- Dependencies: 259
 -- Data for Name: state; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2197,7 +2238,7 @@ INSERT INTO public.rush_order (id, cart_id, delivery_address_id, restaurant_mana
 
 
 --
--- TOC entry 3411 (class 0 OID 25834)
+-- TOC entry 3419 (class 0 OID 25834)
 -- Dependencies: 261
 -- Data for Name: voucher; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2213,7 +2254,7 @@ INSERT INTO public.voucher (id, order_id, "time", coin_history_id) VALUES (2, 10
 
 
 --
--- TOC entry 3459 (class 0 OID 0)
+-- TOC entry 3467 (class 0 OID 0)
 -- Dependencies: 201
 -- Name: addon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2222,7 +2263,7 @@ SELECT pg_catalog.setval('public.addon_id_seq', 1, false);
 
 
 --
--- TOC entry 3460 (class 0 OID 0)
+-- TOC entry 3468 (class 0 OID 0)
 -- Dependencies: 203
 -- Name: address_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2231,7 +2272,7 @@ SELECT pg_catalog.setval('public.address_id_seq', 1, false);
 
 
 --
--- TOC entry 3461 (class 0 OID 0)
+-- TOC entry 3469 (class 0 OID 0)
 -- Dependencies: 205
 -- Name: admin_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2240,7 +2281,7 @@ SELECT pg_catalog.setval('public.admin_id_seq', 1, false);
 
 
 --
--- TOC entry 3462 (class 0 OID 0)
+-- TOC entry 3470 (class 0 OID 0)
 -- Dependencies: 207
 -- Name: cart_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2249,16 +2290,16 @@ SELECT pg_catalog.setval('public.cart_id_seq', 1, false);
 
 
 --
--- TOC entry 3463 (class 0 OID 0)
+-- TOC entry 3471 (class 0 OID 0)
 -- Dependencies: 211
 -- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.category_id_seq', 1, false);
+SELECT pg_catalog.setval('public.category_id_seq', 5, true);
 
 
 --
--- TOC entry 3464 (class 0 OID 0)
+-- TOC entry 3472 (class 0 OID 0)
 -- Dependencies: 213
 -- Name: coin_history_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2267,7 +2308,7 @@ SELECT pg_catalog.setval('public.coin_history_id_seq', 1, false);
 
 
 --
--- TOC entry 3465 (class 0 OID 0)
+-- TOC entry 3473 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: coin_use_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2276,7 +2317,7 @@ SELECT pg_catalog.setval('public.coin_use_type_id_seq', 1, false);
 
 
 --
--- TOC entry 3466 (class 0 OID 0)
+-- TOC entry 3474 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: customer_address_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2285,7 +2326,7 @@ SELECT pg_catalog.setval('public.customer_address_id_seq', 1, false);
 
 
 --
--- TOC entry 3467 (class 0 OID 0)
+-- TOC entry 3475 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2294,7 +2335,7 @@ SELECT pg_catalog.setval('public.customer_id_seq', 1, false);
 
 
 --
--- TOC entry 3468 (class 0 OID 0)
+-- TOC entry 3476 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: customer_image_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2303,7 +2344,7 @@ SELECT pg_catalog.setval('public.customer_image_id_seq', 1, false);
 
 
 --
--- TOC entry 3469 (class 0 OID 0)
+-- TOC entry 3477 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: delivery_address_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2312,7 +2353,7 @@ SELECT pg_catalog.setval('public.delivery_address_id_seq', 1, false);
 
 
 --
--- TOC entry 3470 (class 0 OID 0)
+-- TOC entry 3478 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: gift_info_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2321,7 +2362,7 @@ SELECT pg_catalog.setval('public.gift_info_id_seq', 5, true);
 
 
 --
--- TOC entry 3471 (class 0 OID 0)
+-- TOC entry 3479 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: invoice_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2330,7 +2371,7 @@ SELECT pg_catalog.setval('public.invoice_id_seq', 1, false);
 
 
 --
--- TOC entry 3472 (class 0 OID 0)
+-- TOC entry 3480 (class 0 OID 0)
 -- Dependencies: 263
 -- Name: item_addon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2339,34 +2380,34 @@ SELECT pg_catalog.setval('public.item_addon_id_seq', 16, true);
 
 
 --
--- TOC entry 3473 (class 0 OID 0)
+-- TOC entry 3481 (class 0 OID 0)
 -- Dependencies: 267
 -- Name: item_category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.item_category_id_seq', 1, false);
+SELECT pg_catalog.setval('public.item_category_id_seq', 69, true);
 
 
 --
--- TOC entry 3474 (class 0 OID 0)
+-- TOC entry 3482 (class 0 OID 0)
 -- Dependencies: 229
 -- Name: item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.item_id_seq', 1, true);
+SELECT pg_catalog.setval('public.item_id_seq', 74, true);
 
 
 --
--- TOC entry 3475 (class 0 OID 0)
+-- TOC entry 3483 (class 0 OID 0)
 -- Dependencies: 265
 -- Name: item_image_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.item_image_id_seq', 5, true);
+SELECT pg_catalog.setval('public.item_image_id_seq', 31, true);
 
 
 --
--- TOC entry 3476 (class 0 OID 0)
+-- TOC entry 3484 (class 0 OID 0)
 -- Dependencies: 231
 -- Name: item_review_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2375,16 +2416,16 @@ SELECT pg_catalog.setval('public.item_review_id_seq', 1, false);
 
 
 --
--- TOC entry 3477 (class 0 OID 0)
+-- TOC entry 3485 (class 0 OID 0)
 -- Dependencies: 269
 -- Name: item_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.item_type_id_seq', 11, true);
+SELECT pg_catalog.setval('public.item_type_id_seq', 109, true);
 
 
 --
--- TOC entry 3478 (class 0 OID 0)
+-- TOC entry 3486 (class 0 OID 0)
 -- Dependencies: 234
 -- Name: orderr_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2393,7 +2434,7 @@ SELECT pg_catalog.setval('public.orderr_id_seq', 1, false);
 
 
 --
--- TOC entry 3479 (class 0 OID 0)
+-- TOC entry 3487 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: payment_info_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2402,7 +2443,7 @@ SELECT pg_catalog.setval('public.payment_info_id_seq', 1, false);
 
 
 --
--- TOC entry 3480 (class 0 OID 0)
+-- TOC entry 3488 (class 0 OID 0)
 -- Dependencies: 241
 -- Name: promo_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2411,7 +2452,7 @@ SELECT pg_catalog.setval('public.promo_type_id_seq', 1, false);
 
 
 --
--- TOC entry 3481 (class 0 OID 0)
+-- TOC entry 3489 (class 0 OID 0)
 -- Dependencies: 243
 -- Name: promo_use_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2420,7 +2461,7 @@ SELECT pg_catalog.setval('public.promo_use_id_seq', 1, false);
 
 
 --
--- TOC entry 3482 (class 0 OID 0)
+-- TOC entry 3490 (class 0 OID 0)
 -- Dependencies: 246
 -- Name: restaurant_address_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2429,7 +2470,7 @@ SELECT pg_catalog.setval('public.restaurant_address_id_seq', 1, false);
 
 
 --
--- TOC entry 3483 (class 0 OID 0)
+-- TOC entry 3491 (class 0 OID 0)
 -- Dependencies: 247
 -- Name: restaurant_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2438,7 +2479,7 @@ SELECT pg_catalog.setval('public.restaurant_id_seq', 1, false);
 
 
 --
--- TOC entry 3484 (class 0 OID 0)
+-- TOC entry 3492 (class 0 OID 0)
 -- Dependencies: 249
 -- Name: restaurant_image_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2447,7 +2488,7 @@ SELECT pg_catalog.setval('public.restaurant_image_id_seq', 1, false);
 
 
 --
--- TOC entry 3485 (class 0 OID 0)
+-- TOC entry 3493 (class 0 OID 0)
 -- Dependencies: 251
 -- Name: restaurant_manager_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2456,7 +2497,7 @@ SELECT pg_catalog.setval('public.restaurant_manager_id_seq', 1, false);
 
 
 --
--- TOC entry 3486 (class 0 OID 0)
+-- TOC entry 3494 (class 0 OID 0)
 -- Dependencies: 253
 -- Name: restaurant_review_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2465,7 +2506,7 @@ SELECT pg_catalog.setval('public.restaurant_review_id_seq', 1, false);
 
 
 --
--- TOC entry 3487 (class 0 OID 0)
+-- TOC entry 3495 (class 0 OID 0)
 -- Dependencies: 256
 -- Name: search_history_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2474,7 +2515,7 @@ SELECT pg_catalog.setval('public.search_history_id_seq', 1, false);
 
 
 --
--- TOC entry 3488 (class 0 OID 0)
+-- TOC entry 3496 (class 0 OID 0)
 -- Dependencies: 258
 -- Name: service_charge_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2483,7 +2524,7 @@ SELECT pg_catalog.setval('public.service_charge_id_seq', 1, false);
 
 
 --
--- TOC entry 3489 (class 0 OID 0)
+-- TOC entry 3497 (class 0 OID 0)
 -- Dependencies: 260
 -- Name: state_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2492,7 +2533,7 @@ SELECT pg_catalog.setval('public.state_id_seq', 1, false);
 
 
 --
--- TOC entry 3490 (class 0 OID 0)
+-- TOC entry 3498 (class 0 OID 0)
 -- Dependencies: 262
 -- Name: voucher_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -2636,6 +2677,33 @@ ALTER TABLE ONLY public.invoice
 
 
 --
+-- TOC entry 3170 (class 2606 OID 26255)
+-- Name: item_addon item_addon_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.item_addon
+    ADD CONSTRAINT item_addon_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3174 (class 2606 OID 26257)
+-- Name: item_category item_category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.item_category
+    ADD CONSTRAINT item_category_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3172 (class 2606 OID 26259)
+-- Name: item_image item_image_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.item_image
+    ADD CONSTRAINT item_image_pkey PRIMARY KEY (id);
+
+
+--
 -- TOC entry 3138 (class 2606 OID 25902)
 -- Name: item item_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
@@ -2651,6 +2719,15 @@ ALTER TABLE ONLY public.item
 
 ALTER TABLE ONLY public.item_review
     ADD CONSTRAINT item_review_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3176 (class 2606 OID 26261)
+-- Name: item_type item_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.item_type
+    ADD CONSTRAINT item_type_pkey PRIMARY KEY (id);
 
 
 --
@@ -2780,7 +2857,7 @@ ALTER TABLE ONLY public.voucher
 
 
 --
--- TOC entry 3169 (class 2606 OID 25933)
+-- TOC entry 3177 (class 2606 OID 25933)
 -- Name: cart cart_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2789,7 +2866,7 @@ ALTER TABLE ONLY public.cart
 
 
 --
--- TOC entry 3174 (class 2606 OID 25938)
+-- TOC entry 3182 (class 2606 OID 25938)
 -- Name: cart_item_addon cart_item_addon_addon_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2798,7 +2875,7 @@ ALTER TABLE ONLY public.cart_item_addon
 
 
 --
--- TOC entry 3175 (class 2606 OID 25943)
+-- TOC entry 3183 (class 2606 OID 25943)
 -- Name: cart_item_addon cart_item_addon_cart_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2807,7 +2884,7 @@ ALTER TABLE ONLY public.cart_item_addon
 
 
 --
--- TOC entry 3172 (class 2606 OID 25948)
+-- TOC entry 3180 (class 2606 OID 25948)
 -- Name: cart_item cart_item_cart_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2816,7 +2893,7 @@ ALTER TABLE ONLY public.cart_item
 
 
 --
--- TOC entry 3173 (class 2606 OID 25953)
+-- TOC entry 3181 (class 2606 OID 25953)
 -- Name: cart_item cart_item_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2825,7 +2902,7 @@ ALTER TABLE ONLY public.cart_item
 
 
 --
--- TOC entry 3170 (class 2606 OID 25958)
+-- TOC entry 3178 (class 2606 OID 25958)
 -- Name: cart cart_restaurant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2834,7 +2911,7 @@ ALTER TABLE ONLY public.cart
 
 
 --
--- TOC entry 3176 (class 2606 OID 25963)
+-- TOC entry 3184 (class 2606 OID 25963)
 -- Name: category category_restaurant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2843,7 +2920,7 @@ ALTER TABLE ONLY public.category
 
 
 --
--- TOC entry 3177 (class 2606 OID 25968)
+-- TOC entry 3185 (class 2606 OID 25968)
 -- Name: coin_history coin_history_coin_use_type_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2852,7 +2929,7 @@ ALTER TABLE ONLY public.coin_history
 
 
 --
--- TOC entry 3178 (class 2606 OID 25973)
+-- TOC entry 3186 (class 2606 OID 25973)
 -- Name: coin_history coin_history_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2861,7 +2938,7 @@ ALTER TABLE ONLY public.coin_history
 
 
 --
--- TOC entry 3212 (class 2606 OID 25978)
+-- TOC entry 3220 (class 2606 OID 25978)
 -- Name: voucher coin_history_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2870,7 +2947,7 @@ ALTER TABLE ONLY public.voucher
 
 
 --
--- TOC entry 3179 (class 2606 OID 25983)
+-- TOC entry 3187 (class 2606 OID 25983)
 -- Name: coin_use_type coin_use_type_admin_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2879,7 +2956,7 @@ ALTER TABLE ONLY public.coin_use_type
 
 
 --
--- TOC entry 3181 (class 2606 OID 25988)
+-- TOC entry 3189 (class 2606 OID 25988)
 -- Name: customer_address customer_address_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2888,7 +2965,7 @@ ALTER TABLE ONLY public.customer_address
 
 
 --
--- TOC entry 3182 (class 2606 OID 25993)
+-- TOC entry 3190 (class 2606 OID 25993)
 -- Name: customer_image customer_image_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2897,7 +2974,7 @@ ALTER TABLE ONLY public.customer_image
 
 
 --
--- TOC entry 3180 (class 2606 OID 25998)
+-- TOC entry 3188 (class 2606 OID 25998)
 -- Name: customer customer_image_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2906,7 +2983,7 @@ ALTER TABLE ONLY public.customer
 
 
 --
--- TOC entry 3188 (class 2606 OID 26003)
+-- TOC entry 3196 (class 2606 OID 26003)
 -- Name: orderr gift_info_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2915,7 +2992,7 @@ ALTER TABLE ONLY public.orderr
 
 
 --
--- TOC entry 3184 (class 2606 OID 26008)
+-- TOC entry 3192 (class 2606 OID 26008)
 -- Name: gift_info gift_info_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2924,7 +3001,7 @@ ALTER TABLE ONLY public.gift_info
 
 
 --
--- TOC entry 3189 (class 2606 OID 26013)
+-- TOC entry 3197 (class 2606 OID 26013)
 -- Name: orderr invoice_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2933,7 +3010,7 @@ ALTER TABLE ONLY public.orderr
 
 
 --
--- TOC entry 3185 (class 2606 OID 26018)
+-- TOC entry 3193 (class 2606 OID 26018)
 -- Name: invoice invoice_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2942,7 +3019,7 @@ ALTER TABLE ONLY public.invoice
 
 
 --
--- TOC entry 3215 (class 2606 OID 26201)
+-- TOC entry 3223 (class 2606 OID 26201)
 -- Name: item_addon item_addon_addon_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2951,7 +3028,7 @@ ALTER TABLE ONLY public.item_addon
 
 
 --
--- TOC entry 3214 (class 2606 OID 26196)
+-- TOC entry 3222 (class 2606 OID 26196)
 -- Name: item_addon item_addon_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2960,7 +3037,7 @@ ALTER TABLE ONLY public.item_addon
 
 
 --
--- TOC entry 3217 (class 2606 OID 26233)
+-- TOC entry 3225 (class 2606 OID 26233)
 -- Name: item_category item_category_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2969,7 +3046,7 @@ ALTER TABLE ONLY public.item_category
 
 
 --
--- TOC entry 3218 (class 2606 OID 26238)
+-- TOC entry 3226 (class 2606 OID 26238)
 -- Name: item_category item_category_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2978,7 +3055,7 @@ ALTER TABLE ONLY public.item_category
 
 
 --
--- TOC entry 3216 (class 2606 OID 26222)
+-- TOC entry 3224 (class 2606 OID 26222)
 -- Name: item_image item_image_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2987,7 +3064,7 @@ ALTER TABLE ONLY public.item_image
 
 
 --
--- TOC entry 3186 (class 2606 OID 26023)
+-- TOC entry 3194 (class 2606 OID 26023)
 -- Name: item_review item_review_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2996,7 +3073,7 @@ ALTER TABLE ONLY public.item_review
 
 
 --
--- TOC entry 3187 (class 2606 OID 26028)
+-- TOC entry 3195 (class 2606 OID 26028)
 -- Name: item_review item_review_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3005,7 +3082,7 @@ ALTER TABLE ONLY public.item_review
 
 
 --
--- TOC entry 3219 (class 2606 OID 26249)
+-- TOC entry 3227 (class 2606 OID 26249)
 -- Name: item_type item_type_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3014,7 +3091,7 @@ ALTER TABLE ONLY public.item_type
 
 
 --
--- TOC entry 3183 (class 2606 OID 26033)
+-- TOC entry 3191 (class 2606 OID 26033)
 -- Name: delivery_address order_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3023,7 +3100,7 @@ ALTER TABLE ONLY public.delivery_address
 
 
 --
--- TOC entry 3171 (class 2606 OID 26038)
+-- TOC entry 3179 (class 2606 OID 26038)
 -- Name: cart order_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3032,7 +3109,7 @@ ALTER TABLE ONLY public.cart
 
 
 --
--- TOC entry 3190 (class 2606 OID 26043)
+-- TOC entry 3198 (class 2606 OID 26043)
 -- Name: orderr orderr_cart_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3041,7 +3118,7 @@ ALTER TABLE ONLY public.orderr
 
 
 --
--- TOC entry 3191 (class 2606 OID 26048)
+-- TOC entry 3199 (class 2606 OID 26048)
 -- Name: orderr orderr_delivery_address_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3050,7 +3127,7 @@ ALTER TABLE ONLY public.orderr
 
 
 --
--- TOC entry 3192 (class 2606 OID 26053)
+-- TOC entry 3200 (class 2606 OID 26053)
 -- Name: orderr orderr_restaurant_manager_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3059,7 +3136,7 @@ ALTER TABLE ONLY public.orderr
 
 
 --
--- TOC entry 3193 (class 2606 OID 26058)
+-- TOC entry 3201 (class 2606 OID 26058)
 -- Name: orderr payment_info_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3068,7 +3145,7 @@ ALTER TABLE ONLY public.orderr
 
 
 --
--- TOC entry 3197 (class 2606 OID 26063)
+-- TOC entry 3205 (class 2606 OID 26063)
 -- Name: payment_info payment_info_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3077,7 +3154,7 @@ ALTER TABLE ONLY public.payment_info
 
 
 --
--- TOC entry 3198 (class 2606 OID 26068)
+-- TOC entry 3206 (class 2606 OID 26068)
 -- Name: promo promo_admin_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3086,7 +3163,7 @@ ALTER TABLE ONLY public.promo
 
 
 --
--- TOC entry 3199 (class 2606 OID 26073)
+-- TOC entry 3207 (class 2606 OID 26073)
 -- Name: promo promo_promo_type_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3095,7 +3172,7 @@ ALTER TABLE ONLY public.promo
 
 
 --
--- TOC entry 3194 (class 2606 OID 26078)
+-- TOC entry 3202 (class 2606 OID 26078)
 -- Name: orderr promo_use_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3104,7 +3181,7 @@ ALTER TABLE ONLY public.orderr
 
 
 --
--- TOC entry 3200 (class 2606 OID 26083)
+-- TOC entry 3208 (class 2606 OID 26083)
 -- Name: promo_use promo_use_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3113,7 +3190,7 @@ ALTER TABLE ONLY public.promo_use
 
 
 --
--- TOC entry 3201 (class 2606 OID 26088)
+-- TOC entry 3209 (class 2606 OID 26088)
 -- Name: promo_use promo_use_promo_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3122,7 +3199,7 @@ ALTER TABLE ONLY public.promo_use
 
 
 --
--- TOC entry 3203 (class 2606 OID 26093)
+-- TOC entry 3211 (class 2606 OID 26093)
 -- Name: restaurant_address restaurant_address_restaurant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3131,7 +3208,7 @@ ALTER TABLE ONLY public.restaurant_address
 
 
 --
--- TOC entry 3204 (class 2606 OID 26098)
+-- TOC entry 3212 (class 2606 OID 26098)
 -- Name: restaurant_image restaurant_image_restaurant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3140,7 +3217,7 @@ ALTER TABLE ONLY public.restaurant_image
 
 
 --
--- TOC entry 3205 (class 2606 OID 26103)
+-- TOC entry 3213 (class 2606 OID 26103)
 -- Name: restaurant_manager restaurant_manager_address_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3149,7 +3226,7 @@ ALTER TABLE ONLY public.restaurant_manager
 
 
 --
--- TOC entry 3202 (class 2606 OID 26108)
+-- TOC entry 3210 (class 2606 OID 26108)
 -- Name: restaurant restaurant_manager_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3158,7 +3235,7 @@ ALTER TABLE ONLY public.restaurant
 
 
 --
--- TOC entry 3206 (class 2606 OID 26113)
+-- TOC entry 3214 (class 2606 OID 26113)
 -- Name: restaurant_manager restaurant_manager_restaurant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3167,7 +3244,7 @@ ALTER TABLE ONLY public.restaurant_manager
 
 
 --
--- TOC entry 3195 (class 2606 OID 26118)
+-- TOC entry 3203 (class 2606 OID 26118)
 -- Name: orderr restaurant_review_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3176,7 +3253,7 @@ ALTER TABLE ONLY public.orderr
 
 
 --
--- TOC entry 3207 (class 2606 OID 26123)
+-- TOC entry 3215 (class 2606 OID 26123)
 -- Name: restaurant_review restaurant_review_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3185,7 +3262,7 @@ ALTER TABLE ONLY public.restaurant_review
 
 
 --
--- TOC entry 3208 (class 2606 OID 26128)
+-- TOC entry 3216 (class 2606 OID 26128)
 -- Name: restaurant_review restaurant_review_restaurant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3194,7 +3271,7 @@ ALTER TABLE ONLY public.restaurant_review
 
 
 --
--- TOC entry 3209 (class 2606 OID 26133)
+-- TOC entry 3217 (class 2606 OID 26133)
 -- Name: search_history search_history_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3203,7 +3280,7 @@ ALTER TABLE ONLY public.search_history
 
 
 --
--- TOC entry 3210 (class 2606 OID 26138)
+-- TOC entry 3218 (class 2606 OID 26138)
 -- Name: service_charge service_charge_restaurant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3212,7 +3289,7 @@ ALTER TABLE ONLY public.service_charge
 
 
 --
--- TOC entry 3211 (class 2606 OID 26143)
+-- TOC entry 3219 (class 2606 OID 26143)
 -- Name: state state_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3221,7 +3298,7 @@ ALTER TABLE ONLY public.state
 
 
 --
--- TOC entry 3196 (class 2606 OID 26148)
+-- TOC entry 3204 (class 2606 OID 26148)
 -- Name: orderr voucher_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3230,7 +3307,7 @@ ALTER TABLE ONLY public.orderr
 
 
 --
--- TOC entry 3213 (class 2606 OID 26153)
+-- TOC entry 3221 (class 2606 OID 26153)
 -- Name: voucher voucher_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3238,7 +3315,7 @@ ALTER TABLE ONLY public.voucher
     ADD CONSTRAINT voucher_order_id_fkey FOREIGN KEY (order_id) REFERENCES public.orderr(id);
 
 
--- Completed on 2022-02-20 01:01:26
+-- Completed on 2022-02-20 19:12:45
 
 --
 -- PostgreSQL database dump complete
