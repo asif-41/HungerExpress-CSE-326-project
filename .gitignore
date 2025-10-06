@@ -1,53 +1,53 @@
-# # Node modules
-# node_modules/
+# Node modules
+node_modules/
 
-# # Logs
-# logs/
-# *.log
-# npm-debug.log*
-# yarn-debug.log*
-# yarn-error.log*
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# # Runtime data
-# pids/
-# *.pid
-# *.seed
-# *.pid.lock
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
 
-# # Coverage directory
-# coverage/
+# Coverage directory
+coverage/
 
-# # Build output
-# dist/
-# build/
+# Build output
+dist/
+build/
 
-# # Dependency directories
-# jspm_packages/
+# Dependency directories
+jspm_packages/
 
-# # Optional npm cache directory
-# .npm/
+# Optional npm cache directory
+.npm/
 
-# # Optional eslint cache
-# .eslintcache
+# Optional eslint cache
+.eslintcache
 
-# # dotenv environment variables file
-# .env
-# .env.local
-# .env.development.local
-# .env.test.local
-# .env.production.local
+# dotenv environment variables file
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# # IDE files
-# .vscode/
-# .idea/
-# *.sublime-workspace
-# *.sublime-project
+# IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
 
-# # OS files
-# .DS_Store
-# Thumbs.db
+# OS files
+.DS_Store
+Thumbs.db
 
-# # Misc
-# *.tgz
-# *.gz
-# *.zip
+# Misc
+*.tgz
+*.gz
+*.zip
