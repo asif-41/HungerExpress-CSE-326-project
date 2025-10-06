@@ -1,0 +1,754 @@
+Id,Name,Shape Library,Page ID,Contained By,Group,Line Source,Line Destination,Source Arrow,Destination Arrow,Status,Text Area 1,Text Area 2,Text Area 3
+1,Document,,,,,,,,,,Hungry_express,,
+2,Page,,,,,,,,,,Customer,,
+3,Text,Standard,2,,,,,,,,Customer Module,,
+4,Class,UML,2,,,,,,,,"<< Boundary >>
+Customer_UI",,"​+ edit_info( Customer ):
++ add_address( customer_id, Customer_address ):
++ edit_address( Customer_addres ):
++ remove_address( Customer_addres ):
++ remove_search_record( search_history_id):
+
++ select_address( customer_address ):
++ select_address( customer_id, address_id ):
++ search( customer_id, desc, type ):
+
++ show_search_result( List<Restaurant> ):
++ show_search_result( List<Restaurant> ):
++ show_info( type, id ):"
+5,Class,UML,2,,,,,,,,"<< Controller >>
+Customer_Controller",,"​+ edit_customer( Customer, action ):
++ edit_address( Customer_address, action ):
++ edit_search_record( id, action ):
+
++ set_current_address( customer_ address ):
++ set_current_address( customer_id, customer_address_id):
++ get_search_results( desc, type, customer_id ):
++ get_restaurants( customer_id ):
+
++ get_info( type, customer_id ):"
+6,Class,UML,2,,,,,,,,Customer_Getter,,"​+ get_customer_info( customer_id ):
++ get_current_address( customer_id ):
++ get_saved_addresses( customer_id ):
++ get_search_records( customer_id ):
+
++ get_payment_history( customer_id ):
++ get_invoices( customer_id ):
++ get_orders( customer_id ):
++ get_restaurant_details( restaurant_id ):
+
++ get_restaurants( customer_address_id ):
++ get_restaurants_by_item( item_id, customer_address_id ):
+
++ search_by_item( customer_address_id, item_id ):
++ search_by_item( customer_address_id, desc ):
++ search_by_restaurant( customer_address_id, desc ):
++ search_by_rating( customer_address_id,low, high ):
++ search_by_price( customer_address_id, low, high):"
+7,Class,UML,2,,,,,,,,"<< Entity >>
+Restaurant"," - id : int
+ - address_id : int
+ - service_charge_id : int
+ - name : string
+ - rating : double",
+8,Class,UML,2,,,,,,,,"<< Entity >>
+Item"," - id : int
+ - image_id : int
+ - name : string
+ - rating : double
+ - description: string
+ - count : int
+ - discount : double",
+9,Class,UML,2,,,,,,,,"<< Entity >>
+Customer"," - id : int
+ - address_id : int
+ - name : string
+ - coin : int",
+10,Class,UML,2,,,,,,,,"<< Entity >>
+Customer Address"," - id : int
+ - customer_id : int
+ - location : string
+ - block : int
+ - road : int
+ - house : int
+ - apartment : int
+ - postal_code : int
+ - time : time",
+11,Class,UML,2,,,,,,,,"<< Entity >>
+Search_history"," - id : int
+ - customer_id : int
+ - description : string
+ - time : int
+ - type : string",
+12,Class,UML,2,,,,,,,,"<< Entity >>
+Payment_info"," - id : int
+ - order_id : int
+ - account_no : string
+ - time : time
+ - type : string
+ - trx_id : string",
+13,Class,UML,2,,,,,,,,"<< Entity >>
+Orders"," - id : int
+ - delivery_address_id : int
+ - restaurant_manager_id : int
+ - cart_id : int
+ - invoice_id : int
+ - promo_use_id : int
+ - voucher_id : int
+ - cutlery : bool
+ - current_state_id : int",
+14,Class,UML,2,,,,,,,,"<< Entity >>
+Invoice"," - id : int
+ - order_id : int
+ - payment_info_id : int
+ - delivery_fee : int
+ - service_charge_id : int
+ - vat_amount: double
+ - total_price : int",
+15,Line,,2,,,5,6,None,Open Arrow,,Uses,,
+16,Line,,2,,,5,11,None,Open Arrow,,Edits,,
+17,Line,,2,,,5,10,None,Open Arrow,,Edits,,
+18,Line,,2,,,5,9,None,Open Arrow,,Edits,,
+19,Line,,2,,,6,12,None,Open Arrow,,Uses,,
+20,Line,,2,,,6,7,None,Open Arrow,,Uses,,
+21,Line,,2,,,6,14,None,Open Arrow,,Uses,,
+22,Line,,2,,,6,8,None,Open Arrow,,Uses,,
+23,Line,,2,,,6,13,None,Open Arrow,,Uses,,
+24,Line,,2,,,9,10,None,None,,1,1..*,
+25,Line,,2,,,9,11,None,None,,1,*,
+26,Line,,2,,,9,13,None,None,,1,*,
+27,Line,,2,,,12,13,None,None,,1,1,
+28,Line,,2,,,14,13,None,None,,1,1,
+29,Line,,2,,,7,13,None,None,,1,*,
+30,Page,,,,,,,,,,Restaurant,,
+31,Text,Standard,30,,,,,,,,Restaurant_Module,,
+32,Class,UML,30,,,,,,,,"<< Boundary >>
+Restaurant_UI",,"​+ create_category( Category ):
++ create_item( Item ):
++ create_item_type( Item_type d):
++ create_add_on( add_on ):
+
++ edit_category( Category ):
++ edit_item( Item ):
++ edit_item_type( Item_type ):
++ edit_add_on( add_on ):
+ 
++ remove_category( category_id ):
++ remove_item( item_id ):
++ remove_item_type( item_type_id ):
++ remove_add_on( add_on_id ):
+
++ notify( ):
++ show_data( type ):"
+33,Class,UML,30,,,,,,,,"<< Controller >>
+Restaurant_controller",,"​+ edit_category( Category, action ):
++ edit_item( Item, action ):
++ edit_item_type( Item_type, action):
++ edit_add_on( add_on, action ):
+
++ notify_restaurant( id, type, status ):
++ get_data( type, id ):"
+34,Class,UML,30,,,,,,,,Restaurant_Getter,,"​+ get_category( restaurant_id ):
++ get_items( restaurant_id ):
++ get_items_in_category( category_id ):
++ get_item_type( item_id ):
++ get_add_on( item_id ):
++ get_all_add_on( restaurant_id ):
++ get_all( restaurant_id ):
++ get_all_orders( restaurant_id ):"
+35,Class,UML,30,,,,,,,,"<< Entity >>
+Item_type"," - id : int
+ - item_id : int
+ - name : string
+ - weight : double
+ - price : double",
+36,Class,UML,30,,,,,,,,"<< Entity >>
+Add_on"," - id : int
+ - name: string
+ - price : double
+ - count : int",
+37,Class,UML,30,,,,,,,,"<< Entity >>
+Item"," - id : int
+ - image_id : int
+ - name : string
+ - rating : double
+ - description: string
+ - count : int
+ - discount : double",
+38,Class,UML,30,,,,,,,,"<< Entity >>
+Restaurant"," - id : int
+ - address_id : int
+ - service_charge_id : int
+ - name : string
+ - rating : double",
+39,Class,UML,30,,,,,,,,"<< Entity >>
+Category"," - id : int
+ - name : string",
+40,Class,UML,30,,,,,,,,"<< Entity >>
+Item_category"," - item_id : int
+ - category_id : int",
+41,Class,UML,30,,,,,,,,"<< Entity >>
+Item_add_on"," - item_id : int
+ - add_on_id : int",
+42,Class,UML,30,,,,,,,,"<< Entity >>
+Orders"," - id : int
+ - delivery_address_id : int
+ - restaurant_manager_id : int
+ - cart_id : int
+ - invoice_id : int
+ - promo_use_id : int
+ - voucher_id : int
+ - cutlery : bool
+ - current_state_id : int",
+43,Line,,30,,,33,34,None,Open Arrow,,Uses,,
+44,Line,,30,,,34,38,None,Open Arrow,,Uses,,
+45,Line,,30,,,39,40,None,None,,1,*,
+46,Line,,30,,,38,39,None,None,,1,*,
+47,Line,,30,,,37,35,None,None,,1,*,
+48,Line,,30,,,37,40,None,None,,1,*,
+49,Line,,30,,,37,41,None,None,,1,*,
+50,Line,,30,,,41,36,None,None,,1,*,
+51,Line,,30,,,33,41,None,Open Arrow,,Edits,,
+52,Line,,30,,,33,36,None,Open Arrow,,Edits,,
+53,Line,,30,,,33,37,None,Open Arrow,,Edits,,
+54,Line,,30,,,33,35,None,Open Arrow,,Edits,,
+55,Line,,30,,,33,40,None,Open Arrow,,Edits,,
+56,Line,,30,,,33,39,None,Open Arrow,,Edits,,
+57,Line,,30,,,34,42,None,Open Arrow,,Uses,,
+58,Page,,,,,,,,,,Menu+Cart,,
+59,Text,Standard,58,,,,,,,,Menu/Cart Module,,
+60,Class,UML,58,,,,,,,,"<< Boundary >>
+Menu_Cart_UI",,"​+ add_item_to_cart( Item, cart_id ):
++ add_item_to_cart( List<Item>, cart_id ):
+
++ remove_item_from_cart( Item, cart_id ):
++ remove_item_from_cart( List<Item>, cart_id ):
+
++ clear( ):
+
++ show_current_cart( ):
++ show_past_carts( ):"
+61,Class,UML,58,,,,,,,,"<< Controller >>
+Menu_Cart_Controller",,"​+ edit_cart( Item, cart_id, action ):
++ edit_cart( List<Item>, cart_id, action ):
+
++ clear_cart( cart_id ):
++ save_cart( cart_id ):
+
++ get_current_cart( customer_id ):
++ get_previous_carts( customer_id ):"
+62,Class,UML,58,,,,,,,,"<< Entity >>
+Item"," - id : int
+ - image_id : int
+ - name : string
+ - rating : double
+ - description: string
+ - count : int
+ - discount : double",
+63,Class,UML,58,,,,,,,,"<< Entity >>
+Cart"," - id : int
+ - customer_id : int
+ - restaurant_id : int
+ - order_time : time
+ - delivery_time : time
+ - total_item_price : double",
+64,Class,UML,58,,,,,,,,"<< Entity >>
+Customer"," - id : int
+ - address_id : int
+ - name : string
+ - coin : int",
+65,Class,UML,58,,,,,,,,"<< Entity >>
+Cart_item"," - id : int
+ - item_id : int
+ - cart_id : int
+ - item_price : double
+ - count : int",
+66,Line,,58,,,61,64,None,Open Arrow,,Uses,,
+67,Line,,58,,,61,63,None,Open Arrow,,Edits,,
+68,Line,,58,,,65,62,None,None,,*,1,
+69,Line,,58,,,63,64,None,None,,1..*,1,
+70,Line,,58,,,61,65,None,Open Arrow,,Edits,,
+71,Line,,58,,,65,63,None,None,,1..*,1,
+72,Page,,,,,,,,,,Order,,
+73,Text,Standard,72,,,,,,,,Order_Module,,
+74,Class,UML,72,,,,,,,,Info_Getter,,"​+ get_orders_by_customer( customer_id ):
++ get_orders_by_restaurant( restaurant_id ):
++ get_orders_by_rider( rider_address_id ):
+
++ get_pending_orders( restaurant_id ):
++ get_pending_orders( customer_id ):
++ get_order_info( order_id ):"
+75,Class,UML,72,,,,,,,,"<< Boundary >>
+Customer_Order_UI",,"​+ confirm_cart( cart_id, type ):
++ show_order_detals( Data ):
++ submit_order_data( Data ):
++ request_payment( invoice_id ):
++ submit_payment( invoice_id ):
++ show_invoice( invoice_id ):
+
++ reject_order( order_id ):
++ reject_order( order_id, reason ):
+
++ notify( order_id, state ):
++ notify( ):
+
++ change_state( State, order_id ):
++ show_state( order_id ):
+
++ show_info( type, id ):"
+76,Class,UML,72,,,,,,,,"<< Controller >>
+Order_Controller",,"​+ create_order( cart_id, type ):
++ assign_new_current_cart( customer_id ):
++ propagate_order( order_id, type ):
+
++ ask_order_details( Data ):
++ add_gift_info( Data ):
++ validate_order_data( customer_data, restautrant_data):
++ add_gift_info( name, phone, order_id ):
++ add_promo_use( code, order_id ):
++ add_voucher_use( code, order_id ):
+
++ assign_rider( Data ):
++ rider_assigned( order_id, rider_id ):
+
++ make_invoice( order_id, rider_id ):
++ request_payment( invoice_id ):
++ validate_payment( order_id, trx_id, method, code ):
++ update_invoice( invoice_id, payment_history_id ):
+
++ reject_order( order_id, by_whom, id, reason ):
+
++ get_info( type, id ):
++ get_state( order_id ):
++ update_state( State, prev_state_id ):"
+77,Class,UML,72,,,,,,,,"<< Boundary >>
+Restaurant_Order_UI",,"​+ show_pending_orders( restaurant_id ):
++ send_order_details( Data ):
++ show_invoice( invoice_id ):
+
++ reject_order( order_id ):
++ reject_order( order_id, reason ):
+
++ notify( order_id, state ):
++ notify( ):
+
++ change_state( State, order_id ):
++ show_state( order_id ):
+
++ show_info( type, id ):"
+78,Class,UML,72,,,,,,,,"<< Boundary >>
+Admin_Order_UI",,"​+ notify( order_id, reason, rejected_by, id ):
++ show_info( type, id ):"
+79,Class,UML,72,,,,,,,,"<< Boundary >>
+Rider_Order_UI",,"​+ rider_request( order_id, order_data ):
++ accept_request( order_id, order_data ):
++ show_price( total_price, pin ):
+
++ reject_order( order_id ):
++ reject_order( order_id, reason ):
+
++ change_state( State, order_id ):
++ show_state( order_id ):
+
++ notify( order_id, state ):
++ notify( ):
++ show_info( type, id ):"
+80,Class,UML,72,,,,,,,,Data,"​- data_type : string
+- name : string 
+- phone : phone 
+- pin : string
+- target_time : time
+- estimated_time : time
+- maximum_time : time
+- discount_code : string",
+81,Class,UML,72,,,,,,,,"<< Entity >>
+Orders"," - id : int
+ - delivery_address_id : int
+ - restaurant_manager_id : int
+ - cart_id : int
+ - invoice_id : int
+ - promo_use_id : int
+ - voucher_id : int
+ - cutlery : bool
+ - current_state_id : int",
+82,Class,UML,72,,,,,,,,"<< Entity >>
+Cart"," - id : int
+ - customer_id : int
+ - restaurant_id : int
+ - order_time : time
+ - delivery_time : time
+ - total_item_price : double",
+83,Class,UML,72,,,,,,,,"<< Entity >>
+Customer"," - id : int
+ - address_id : int
+ - name : string
+ - coin : int",
+84,Class,UML,72,,,,,,,,"<< Entity >>
+Promo"," - id : int
+ - type_id : int
+ - admin_id : int
+ - min_amount : int
+ - from : time
+ - to : time
+ - code : string
+ - max_count : int",
+85,Class,UML,72,,,,,,,,"<< Entity >>
+Voucher"," - id : int
+ - coin_history_id : int
+ - order_id : int
+ - code : int
+ - expiry_date : time
+ - amount : int
+ - min_amount : int",
+86,Class,UML,72,,,,,,,,"<< Entity >>
+Payment_info"," - id : int
+ - order_id : int
+ - account_no : string
+ - time : time
+ - type : string
+ - trx_id : string",
+87,Class,UML,72,,,,,,,,"<< Entity >>
+Invoice"," - id : int
+ - order_id : int
+ - delivery_fee : int
+ - service_charge_id : int
+ - vat_amount: double
+ - payment_info_id : int
+ - total_price : int",
+88,Class,UML,72,,,,,,,,"<< Entity >>
+Restaurant Address"," - id : int
+ - restaurant_id : int
+ - location : string
+ - block : int
+ - road : int
+ - house : int
+ - apartment : int
+ - postal_code : int
+ - from : time
+ - to : time
+ - admin_id : int",
+89,Class,UML,72,,,,,,,,"<< Entity >>
+Delivery Address"," - id : int
+ - location : string
+ - block : int
+ - road : int
+ - house : int
+ - apartment : int
+ - postal_code : int",
+90,Class,UML,72,,,,,,,,"<< Entity >>
+State"," - id : int
+ - order_id : int
+ - description : string
+ - time : time",
+91,Class,UML,72,,,,,,,,"<< Entity >>
+Gift_info"," - id : int
+ - order_id : int
+ - name : string
+ - phone : phone",
+92,Class,UML,72,,,,,,,,"<< Entity >>
+Promo_use"," - id : int
+ - order_id : int
+ - promo_id : int
+ - customer_id: int
+ - time : time",
+93,Line,,72,,,76,80,None,Open Arrow,,Uses,,
+94,Line,,72,,,76,74,None,Open Arrow,,Uses,,
+95,Line,,72,,,76,81,None,Open Arrow,,Edits Orders,,
+96,Line,,72,,,76,87,None,Open Arrow,,Edits Invoice,,
+97,Line,,72,,,76,88,None,Open Arrow,,Uses Restauran_Address,,
+98,Line,,72,,,76,89,None,Open Arrow,,Edits Delivery_Address,,
+99,Line,,72,,,76,91,None,Open Arrow,,Edits Gift_info,,
+100,Line,,72,,,76,90,None,Open Arrow,,Edits State,,
+101,Line,,72,,,76,92,None,Open Arrow,,Edits Promo_Use,,
+102,Line,,72,,,76,82,None,Open Arrow,,Edits Cart,,
+103,Line,,72,,,76,85,None,Open Arrow,,Edits Voucher,,
+104,Line,,72,,,76,86,None,Open Arrow,,Edits Payment_info,,
+105,Line,,72,,,76,83,None,Open Arrow,,Uses Customer,,
+106,Line,,72,,,76,84,None,Open Arrow,,Uses Promo,,
+107,Line,,72,,,81,87,None,None,,1,1,
+108,Line,,72,,,81,83,None,None,,*,1,
+109,Line,,72,,,81,91,None,None,,1,0..1,
+110,Line,,72,,,81,89,None,None,,1,1,
+111,Line,,72,,,81,90,None,None,,1,1..*,
+112,Line,,72,,,82,81,None,None,,1,1,
+113,Line,,72,,,86,81,None,None,,1,1,
+114,Line,,72,,,74,81,None,Open Arrow,,Uses,,
+115,Page,,,,,,,,,,Review,,
+116,Text,Standard,115,,,,,,,,Review_Module,,
+117,Class,UML,115,,,,,,,,"<< Boundary >>
+Customer_Review_UI",,"​+ request_review( order_id ):
++ make_review( order_id, type, review_desc, rating ):
++ submit_review( reviews ):
+
++ show_past_review( id, type ):
++ show_past_review( item_id, restaurant_id, type ):"
+118,Class,UML,115,,,,,,,,"<< Controller >>
+Review_Controller",,"​+ request_review( order_id ):
+
++ save_reviews( List<Review> ):
++ change_state( order_id, State ):
++ notify_restaurant( List<Review> ):
+
++ get_reviews( id, type ):"
+119,Class,UML,115,,,,,,,,"<< Boundary >>
+Restaurant_Review_UI",,"​+ request_review( order_id ):
++ notify( List<Review> ):
+
++ show_past_review( id, type ):"
+120,Class,UML,115,,,,,,,,Review_Getter,,"​+ get_review_by_Item( item_id ):
++ get_review_by_Item_of_restaurant( item_id, restaurant_id ):
++ get_review_by_Restaurant( restaurant_id ):"
+121,Class,UML,115,,,,,,,,"<< Entity >>
+Restaurant"," - id : int
+ - address_id : int
+ - service_charge_id : int
+ - name : string
+ - rating : double",
+122,Class,UML,115,,,,,,,,"<< Entity >>
+Item"," - id : int
+ - image_id : int
+ - name : string
+ - rating : double
+ - description: string
+ - count : int
+ - discount : double",
+123,Class,UML,115,,,,,,,,"<< Entity >>
+Item_review"," - id : int
+ - item_id : int
+ - order_id : int
+ - rating : int
+ - description : string",
+124,Class,UML,115,,,,,,,,"<< Entity >>
+Restaurant_review"," - id : int
+ - restaurant_id : int
+ - order_id : int
+ - rating : int
+ - description : string",
+125,Line,,115,,,118,120,None,Open Arrow,,Uses,,
+126,Line,,115,,,120,121,None,Open Arrow,,Uses,,
+127,Line,,115,,,120,122,None,Open Arrow,,Uses,,
+128,Line,,115,,,118,123,None,Open Arrow,,Edits,,
+129,Line,,115,,,118,124,None,Open Arrow,,Edits,,
+130,Line,,115,,,122,123,None,None,,1,*,
+131,Line,,115,,,121,124,None,None,,1,*,
+132,Page,,,,,,,,,,Coin,,
+133,Text,Standard,132,,,,,,,,Coin Module,,
+134,Class,UML,132,,,,,,,,"<< Boundary >>
+Coin_UI",,"​+ show_coin_use_type(  ):
++ show_coin_history( customer_id ):
++ show_voucher( customer_id ):
++ show_voucher_history( customer_id ):
+
++ use_coin( coin_use_type_id ):
++ notify( ):"
+135,Class,UML,132,,,,,,,,"<< Controller >>
+Coin_controller",,"​+ get_coin_use_type( ):
++ get_coin_history( customer_id ):
++ get_vouchers( customer_id ):
+
++ validate_req( coin_use_type_id, customer_id ):
++ make_voucher( coin_use_type_id, customer_id ):
++ notify_customer( ):
+
++ edit_coin_package( Coin_use_type, admin_id, action ):
+
++ notify_admin( status ):
++ notify_admin( coin_use_type_id, status ):"
+136,Class,UML,132,,,,,,,,"<< Entity >>
+Voucher"," - id : int
+ - coin_history_id : int
+ - order_id : int
+ - code : int
+ - expiry_date : time
+ - amount : int
+ - min_amount : int",
+137,Class,UML,132,,,,,,,,"<< Entity >>
+Coin_use_type"," - id : int
+ - admin_id : int
+ - coin_amount : int
+ - expiry_date : time
+ - voucher_taka : int",
+138,Class,UML,132,,,,,,,,"<< Entity >>
+Coin_history"," - id : int
+ - voucher_id : int
+ - customer_id : int
+ - coin_history_type_id : int
+ - time : time",
+139,Class,UML,132,,,,,,,,"<< Boundary >>
+Admin_Coin_UI",,"​+ create_coin_package( Coin_use_type ):
++ edit_coin_package( coin_use_type_id ):
++ disable_coin_package( coin_use_type_id ):
+
++ notify( ):"
+140,Line,,132,,,135,136,None,Open Arrow,,Edits,,
+141,Line,,132,,,135,138,None,Open Arrow,,Edits,,
+142,Line,,132,,,135,137,None,Open Arrow,,Edits,,
+143,Line,,132,,,137,138,None,None,,1,*,
+144,Line,,132,,,136,138,None,None,,1,1,
+145,Page,,,,,,,,,,Promo,,
+146,Text,Standard,145,,,,,,,,Promo_Module,,
+147,Class,UML,145,,,,,,,,"<< Boundary >>
+Restaurant_Promo_UI",,"​+ create_promo( Promo ):
++ edit_promo( Promo ):
++ disable_promo( promo_id ):
++ remove_promo( promo_id ):
+
++ notify( Promo, status ):"
+148,Class,UML,145,,,,,,,,"<< Controller >>
+Promo_Controller",,"​+ notify_admin( Promo, action ):
++ notify_admin( promo_id, action ):
+
++ notify_restaurant( Promo, status ):
+
++ get_pending_promo( ):
++ add_promo( Promo, admin_id ):
++ edit_promo( Promo, action, admin_id ):"
+149,Class,UML,145,,,,,,,,"<< Boundary >>
+Admin_Promo_UI",,"​+ notify( Promo ):
++ notify( promo_id ):
+
++ show_pending_promo_req( ):
+
++ approve_promo( Promo, admin_id ):
++ reject_promo( Promo, admin_id, reason ):
+
++ create_promo( Promo ):
++ edit_promo( Promo ):
++ disable_promo( promo_id ):
++ remove_promo( promo_id ):"
+150,Class,UML,145,,,,,,,,"<< Entity >>
+Promo"," - id : int
+ - type_id : int
+ - admin_id : int
+ - min_amount : int
+ - from : time
+ - to : time
+ - code : string
+ - max_count : int",
+151,Class,UML,145,,,,,,,,"<< Entity >>
+Admin"," - id : int
+ - name : int
+ - DOB : time
+ - phone_no : phone
+ - email_id : email",
+152,Class,UML,145,,,,,,,,"<< Entity >>
+Promo Type"," - id : int
+ - type : string
+ - owner_id : int
+ - value : int
+ - owner_type : string",
+153,Line,,145,,,151,150,None,None,,1,*,
+154,Line,,145,,,148,151,None,Open Arrow,,Uses,,
+155,Line,,145,,,148,150,None,Open Arrow,,Edits,,
+156,Line,,145,,,150,152,None,None,,1,1,
+157,Line,,145,,,148,152,None,Open Arrow,,Edits,,
+158,Page,,,,,,,,,,Service_charge+Address,,
+159,Text,Standard,158,,,,,,,,Service_Charge/Address_Module,,
+160,Class,UML,158,,,,,,,,"<< Boundary >>
+Restaurant_Service_Charge_Address_UI",,"​+ update_service_charge( Service_charge ):
++ change_address( Restaurant_Address ):
++ edit_address( Restaurant_Address ):
++ edit_discount( item_list, discounts ):
+
++ notify( Service_charge, status ):
++ notify( Restaurant_Address, status ):
++ notify( discounts, status ):
+
++ show_info( type, id ):"
+161,Class,UML,158,,,,,,,,"<< Controller >>
+Service_Charge_Address_controller",,"​+ notify_admin( Service_charge ):
++ notify_admin( Restaurant_Address, action ):
++ notify_admin( item_list, discount_list, manager_id ):
+
++ get_pending_service_charges( admin_id ):
++ get_pending_addresses( admin_id ):
++ get_pending_discounts( admin_id ):
+
++ save_vat( Vat, action ):
++ save_service_charge( Service_charge ):
++ save_address( Restaurant_address ):
++ save_discounts( discounts ):
+
++ notify_restaurant( Service_charge, status ):
++ notify_restaurant( Restaurant_Address, status ):
++ notify_restaurant( discounts, status ):
+
++ get_info( type, id ):
++ get_discounts( restaurant_id ):
++ get_service_charge_history( restaurant_id ):
++ get_address( restaurant_id ):"
+162,Class,UML,158,,,,,,,,"<< Boundary >>
+Admin_Service_Charge_Address_UI",,"​+ notify( Vat, action ):
++ notify( Service_charge ):
++ notify( Restaurant_address, action ):
++ notify( item_list, discount_list, manager_id ):
+
++ show_pending_service_charges( admin_id ):
++ show_pending_address( admin_id ):
++ show_pending_discounts( admin_id ):
+
++ approve_service_charge( Service_charge, admin_id ):
++ approve_address( Restaurant_Address, admin_id ):
++ approve_discounts( discounts_list, admin_id ):
+
++ reject_service_charge( Service_charge, reason ):
++ reject_address( Restaurant_Address, reason ):
++ reject_discounts( discounts_list, admin_id ):
+
++ create_vat( Vat, admin_id ):
++ edit_vat( Vat, admin_id ):"
+163,Class,UML,158,,,,,,,,"<< Entity >>
+Service Charge"," - id : int
+ - restaurant_id : int
+ - value : double
+ - to : time
+ - from : time
+ - admin_id: int",
+164,Class,UML,158,,,,,,,,"<< Entity >>
+Restaurant"," - id : int
+ - address_id : int
+ - service_charge_id : int
+ - name : string
+ - rating : double",
+165,Class,UML,158,,,,,,,,"<< Entity >>
+Restaurant Address"," - id : int
+ - restaurant_id : int
+ - location : string
+ - block : int
+ - road : int
+ - house : int
+ - apartment : int
+ - postal_code : int
+ - from : time
+ - to : time
+ - admin_id : int",
+166,Class,UML,158,,,,,,,,"<< Entity >>
+Admin"," - id : int
+ - name : int
+ - DOB : time
+ - phone_no : phone
+ - email_id : email",
+167,Class,UML,158,,,,,,,,"<< Entity >>
+Vat"," - id : int
+ - value : double
+ - to : time
+ - from : time
+ - admin_id: int",
+168,Class,UML,158,,,,,,,,"<< Entity >>
+Item"," - id : int
+ - image_id : int
+ - name : string
+ - rating : double
+ - description: string
+ - count : int
+ - discount : double",
+169,Line,,158,,,161,163,None,Open Arrow,,Edits,,
+170,Line,,158,,,161,165,None,Open Arrow,,Edits,,
+171,Line,,158,,,161,164,None,Open Arrow,,Edits,,
+172,Line,,158,,,161,166,None,Open Arrow,,Uses,,
+173,Line,,158,,,166,163,None,None,,1,*,
+174,Line,,158,,,166,165,None,None,,1,*,
+175,Line,,158,,,164,165,None,None,,1,1,
+176,Line,,158,,,161,167,None,Open Arrow,,Edits,,
+177,Line,,158,,,167,166,None,None,,*,1,
+178,Line,,158,,,161,168,None,Open Arrow,,Edits,,
